@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+/* const navClass = clsx(
+        "w-full py-4 px-8 flex items-center justify-between top-0 left-0 z-50 transition-all duration-300",
+        currentPath() == '/'
+          ? "bg-transparent absolute"
+          : "bg-gradient-to-br from-[#00FF00] to-[#10FF88] shadow-md fixed"
+      ); */
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+* {
+  /* font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal; */
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.6s ease-out forwards;
+}
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#qui {
+  background-image: linear-gradient(to bottom right, #22c55e, #10b981, #a3e635);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 90%,
+    rgba(0, 0, 0, 0.9) 91%,
+    rgba(0, 0, 0, 0.8) 92%,
+    rgba(0, 0, 0, 0.7) 93%,
+    rgba(0, 0, 0, 0.6) 94%,
+    rgba(0, 0, 0, 0.5) 95%,
+    rgba(0, 0, 0, 0.3) 97%,
+    rgba(0, 0, 0, 0.2) 98%,
+    rgba(0, 0, 0, 0.1) 99%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 90%,
+    rgba(0, 0, 0, 0.9) 91%,
+    rgba(0, 0, 0, 0.8) 92%,
+    rgba(0, 0, 0, 0.7) 93%,
+    rgba(0, 0, 0, 0.6) 94%,
+    rgba(0, 0, 0, 0.5) 95%,
+    rgba(0, 0, 0, 0.3) 97%,
+    rgba(0, 0, 0, 0.2) 98%,
+    rgba(0, 0, 0, 0.1) 99%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
+}

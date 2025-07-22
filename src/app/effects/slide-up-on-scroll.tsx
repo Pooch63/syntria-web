@@ -1,0 +1,36 @@
+"use client";
+import React, { useEffect, useRef, useState, ReactNode } from 'react';
+import './slide-up-on-scroll.css';
+
+interface SlideUpOnScrollProps {
+  children: ReactNode;
+  className?: string;
+}
+
+const SlideUpOnScroll: React.FC<SlideUpOnScrollProps> = ({ children, className = '' }) => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [contentVisible, setContentVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setContentVisible(true);
+        observer.disconnect();
+      }
+    });
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={`slide-up-on-scroll ${contentVisible ? 'visible' : ''} ${className}`}
+    >
+      {children}
+    </div>
+  );
+};
+
+export default SlideUpOnScroll;
