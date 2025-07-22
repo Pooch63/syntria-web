@@ -94,7 +94,7 @@ export default function AboutUs() {
 
       <section className="max-w-3xl mx-auto px-4 py-12 text-center">
         <h2 className="text-2xl font-bold text-dark-bg mb-4">You belong on this list.</h2>
-        <p className="mb-6 text-lg opacity-90 text-dark-bg">We're always looking for new talent. Reach out today and make a difference!</p>
+        <p className="mb-6 text-lg opacity-90 text-dark-bg">We&apos;re always looking for new talent. Reach out today and make a difference!</p>
         <a
           href="mailto:hello@syntria.com"
           className="inline-block px-8 py-3 bg-gradient-to-r from-ltrans to-rtrans text-white rounded-full font-semibold shadow-lg hover:bg-dark-bg transition"

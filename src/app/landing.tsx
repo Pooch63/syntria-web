@@ -62,8 +62,8 @@ export default function Landing() {
 
       {/* Info Sections */}
       <div className="space-y-10 py-20">
-        {sections.map((section) => (
-          <TextImage {...section} />
+        {sections.map((section, idx) => (
+          <TextImage key={"Section " + idx} {...section} />
         ))}
       </div>
 
