@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import clsx from "clsx";
-import currentPath from "./currentPath";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -13,10 +13,11 @@ const heros = ['/', '/try-it-now'];
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const currentPath = usePathname();
 
   const navClass = clsx(
     "w-full px-8 py-4 flex items-center justify-between z-50 transition-all duration-300",
-    heros.includes(currentPath())
+    heros.includes(currentPath)
       ? "bg-transparent absolute"
       : "bg-gradient-to-br from-green-500 via-emerald-500 to-lime-600 fixed top-0 left-0"
   );
@@ -24,7 +25,7 @@ export default function Nav() {
   return (
     <>
       <nav className={clsx(navClass,
-        !heros.includes(currentPath()) && !menuOpen ? "shadow-md" : ""
+        !heros.includes(currentPath) && !menuOpen ? "shadow-md" : ""
       )}>
         <div className="flex items-center space-x-3">
           <span className="text-2xl font-extrabold text-white tracking-wide drop-shadow">Syntria</span>
