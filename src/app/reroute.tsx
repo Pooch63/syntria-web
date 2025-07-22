@@ -13,7 +13,7 @@ const routes = [
 export default function recommendReroute() {
     const path = currentPath();
 
-    for (let route of routes) {
+    for (const route of routes) {
         if (distance(route, path) <= 4) return route;
     }
     return null;

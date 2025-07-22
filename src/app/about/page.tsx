@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { Header } from "../effects/texts";
-import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
+import { VerticalTimeline } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { TimelineElement } from "../effects/timeline";
 import { Building2, Gamepad2 } from 'lucide-react';
@@ -79,7 +80,7 @@ export default function AboutUs() {
               </div>
               <div className="relative w-32 h-32 mb-4">
                 <div className="absolute inset-0 rounded-full bg-emerald-200/40 shadow-2xl blur-md" />
-                <img
+                <Image
                   src={member.image}
                   alt={member.name}
                   className="relative w-28 h-28 object-cover rounded-full border-4 border-emerald-100 z-10 group-hover:scale-105 transition"

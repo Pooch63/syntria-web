@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import recommendReroute from "./reroute";
 import currentPath from "./currentPath";
-import { useRouter } from "next/navigation";
 
 export default function NotFound() {
   const recommended = recommendReroute();
@@ -27,7 +27,7 @@ export default function NotFound() {
       </h2>
       <p className="mt-4 max-w-md text-gray-600 z-10">
         {recommended != null && <>Maybe a typo? {currentPath()} does kinda look like <a href={recommended} className="underline">{recommended}</a>.</>}
-        {recommended == null && <>We couldn't figure out what you meant, so we'll just bring you <a href='/'>back home</a>.</>}
+        {recommended == null && <>We couldn&apos;t figure out what you meant, so we&apos;ll just bring you <Link href='/'>back home</Link>.</>}
       </p>
       <a
         href="/"

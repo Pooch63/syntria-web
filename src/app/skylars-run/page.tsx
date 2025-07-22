@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef } from "react";
+import Image from "next/image";
 import Head from "next/head";
 import { Header } from "../effects/texts";
 import SlideUpOnScroll from "../effects/slide-up-on-scroll";
@@ -73,23 +74,23 @@ const graphs = [
     image: "/images/13-cognitive-skills.png",
     imageAlt: "Skylar's Run Gameplay Preview",
     header: "Skylar's Approach",
-    subtitle: <>Skylar's Run starts small and ramps up. You won't believe how much you can improve your
-          cognition... until you already have.</>,
+    subtitle: "Skylar's Run starts small and ramps up. You won't believe how much you can improve your "
+          + "cognition... until you already have.",
     reverse: false
   },
   {
     image: "/images/skylars-run-reductions.png",
     imageAlt: "Skylar's Run Study Findings",
     header: "Skylar's Run Reduces ADHD And Makes it Stay That Way",
-    subtitle: <>4 clinical trials have found that while playing Skylar's Run, ADHD-related symptoms face a sharp decline.
-            After your playing period, you don't have to worry about rebounding - the game has already made its mark.</>,
+    subtitle: "4 clinical trials have found that while playing Skylar's Run, ADHD-related symptoms face a sharp decline. "
+          + "After your playing period, you don't have to worry about rebounding - the game has already made its mark.",
     reverse: true
   },
   {
     image: "/images/skylars-run-comparative-analysis.png",
     imageAlt: "Skylar's Run Compared to Other ADHD Treatments",
     header: "Skylar's Run Beats Tradition",
-    subtitle: <>Short of prescription stimulants, Skylar's Run consistently outperforms other
+    subtitle: <>Short of prescription stimulants, Skylar&apos;s Run consistently outperforms other
         ADHD medications and treatments on the market.</>,
     reverse: false
   }
@@ -114,7 +115,7 @@ export default function TheProof() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-green-50 via-green-100 to-emerald-100 text-gray-900 font-sans">
       <Head>
-        <title>Skylar's Run</title>
+        <title>Skylar&apos;s Run</title>
       </Head>
       
       {/* Hero Banner Section */}
@@ -123,13 +124,13 @@ export default function TheProof() {
           {/* Text Section */}
           <div className="flex-1 text-center md:text-left">
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg">
-              Welcome to Skylar's Run
+              Welcome to Skylar&apos;s Run
             </h1>
             <p className="text-lg md:text-xl max-w-2xl opacity-90">
               Game-Based Cognitive Support for Mental Health Improvement™.
               <br/>
               Designed by neuroscientists to make focus fun—and effective,
-              this is Syntria's biggest innovation in the healthcare space.
+              this is Syntria&apos;s biggest innovation in the healthcare space.
             </p>
           </div>
 
@@ -137,7 +138,7 @@ export default function TheProof() {
           <div className="flex-1 flex justify-center">
             <div className="relative w-80 h-80 md:w-96 md:h-96">
               <div className="absolute inset-0 bg-white/10 rounded-3xl blur-lg shadow-inner"></div>
-              <img
+              <Image
                 src="/images/playing.png"
                 alt="Skylar's Run Gameplay"
                 className="relative w-full h-full object-contain drop-shadow-2xl z-10"
@@ -149,7 +150,7 @@ export default function TheProof() {
       
       {/* Product Showcase Sections */}
       <div className="space-y-20 pt-10 pb-20">
-        {showcaseSections.map((section, idx) => (
+        {showcaseSections.map((section) => (
           <section
             key={"SR PS " + section.title}
             className={`flex flex-col md:flex-row ${section.reverse ? "md:flex-row-reverse" : ""} items-center max-w-6xl mx-auto px-4 md:space-x-12 md:space-x-reverse-12`}
@@ -165,7 +166,7 @@ export default function TheProof() {
             <div className="flex-1 flex justify-center items-center min-h-[300px]">
               <div className="relative w-80 h-80 flex items-center justify-center">
                 <div className="absolute inset-0 rounded-2xl bg-emerald-200/40 shadow-2xl blur-md" />
-                <img
+                <Image
                   src={section.image}
                   alt={section.title}
                   className="relative w-56 h-56 md:w-72 md:h-72 object-contain opacity-95 drop-shadow-xl z-10"
@@ -180,21 +181,23 @@ export default function TheProof() {
       <section className="max-w-5xl mx-auto px-4 pt-20 text-center">
         <Header text="What We Do" />
         <p className="text-xl max-w-3xl mx-auto opacity-90">
-          Skylar's Run causes noticeable improvements in all 5 types of attention, as well as
+          Skylar&apos;s Run causes noticeable improvements in all 5 types of attention, as well as
           8 other functions relating to inhibition, for a total of <b>13</b> cognitive skills.
         </p>
       </section>
 
       {/* Game Image + Gradient Text Section */}
       {console.log(graphs)}
-      {graphs.map(graph => (
-        <section className={`max-w-7xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center gap-12 ${
+      {graphs.map((graph, idx) => (
+        <section
+        key={"Graph SR " + idx}
+        className={`max-w-7xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center gap-12 ${
           graph.reverse ? "md:flex-row-reverse" : ""
         }`}>
           {/* Image Side */}
           <div className="flex-1 relative">
             <div className="w-full h-full rounded-3xl overflow-hidden shadow-2xl">
-              <img
+              <Image
                 src={graph.image}
                 alt={graph.imageAlt}
                 className="w-full h-full object-cover"
@@ -214,7 +217,7 @@ export default function TheProof() {
       <section className="max-w-4xl mx-auto pt-10 pb-12 px-4 text-center">
         <Header text="The Proof" />
         <p className="text-xl max-w-2xl mx-auto mb-8 opacity-90">
-          Syntria only uses technology backed by years and research and <b>results</b>. Skylar's Run is no exception.
+          Syntria only uses technology backed by years and research and <b>results</b>. Skylar&apos;s Run is no exception.
         </p>
       </section>
 
@@ -227,7 +230,7 @@ export default function TheProof() {
       {/* Clinical Trials Section */}
       <section className="max-w-5xl mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold text-emerald-700 mb-8 text-center">8 Clinical Trials. Real Results.</h2>
-        <p className="text-lg text-center mb-10 text-emerald-600 opacity-90">Skylar's Run is backed by rigorous science. Our clients see improvements in:</p>
+        <p className="text-lg text-center mb-10 text-emerald-600 opacity-90">Skylar&apos;s Run is backed by rigorous science. Our clients see improvements in:</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <SlideUpOnScroll className="h-full">
             <div className="flex flex-col items-center h-full bg-gradient-to-br from-green-200 via-emerald-200 to-lime-100 rounded-2xl shadow-xl p-6 hover:scale-105 hover:shadow-2xl transition-transform duration-300 border-2 border-emerald-100">
@@ -235,7 +238,7 @@ export default function TheProof() {
                 <span className="text-3xl font-extrabold text-white drop-shadow">1</span>
               </div>
               <h3 className="text-lg font-bold text-emerald-700 mb-2">Mathematics</h3>
-              <p className="text-sm text-gray-700 opacity-80 text-center">Kids aren't behind anymore. They improve by 8.3 months on average.</p>
+              <p className="text-sm text-gray-700 opacity-80 text-center">Kids aren&apos;t behind anymore. They improve by 8.3 months on average.</p>
             </div>
           </SlideUpOnScroll>
           <SlideUpOnScroll className="h-full">
@@ -244,7 +247,7 @@ export default function TheProof() {
                 <span className="text-3xl font-extrabold text-white drop-shadow">2</span>
               </div>
               <h3 className="text-lg font-bold text-emerald-700 mb-2">Homework</h3>
-              <p className="text-sm text-gray-700 opacity-80 text-center">Expect a 36% increase in your child's homework completion.</p>
+              <p className="text-sm text-gray-700 opacity-80 text-center">Expect a 36% increase in your child&apos;s homework completion.</p>
             </div>
           </SlideUpOnScroll>
           <SlideUpOnScroll className="h-full">
@@ -262,7 +265,7 @@ export default function TheProof() {
                 <span className="text-3xl font-extrabold text-white drop-shadow">4</span>
               </div>
               <h3 className="text-lg font-bold text-emerald-700 mb-2">Reading</h3>
-              <p className="text-sm text-gray-700 opacity-80 text-center">Kids' worth isn't measured by their reading level. But if it were, they'd be 6.6 months richer after playing.</p>
+              <p className="text-sm text-gray-700 opacity-80 text-center">Kids&apos; worth isn&apos;t measured by their reading level. But if it were, they&apos;d be 6.6 months richer after playing.</p>
             </div>
           </SlideUpOnScroll>
         </div>
@@ -305,7 +308,7 @@ export default function TheProof() {
                   key={"Testimonial SR " + idx}
                   className="testimonial-card flex flex-col items-center bg-white rounded-3xl shadow-xl p-8 min-w-[320px] max-w-xs mx-auto snap-center transition-transform duration-300"
                 >
-                  <img
+                  <Image
                     src={t.image}
                     alt={t.name}
                     className="w-32 h-32 rounded-full object-cover mb-6 shadow-lg border-4 border-emerald-100"
@@ -325,13 +328,13 @@ export default function TheProof() {
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-emerald-700 mb-6">Ready to Transform Attention?</h2>
           <p className="text-lg md:text-xl text-gray-700 opacity-90 mb-8">
-            Give Skylar's Run a try today and see the results for yourself.
+            Give Skylar&apos;s Run a try today and see the results for yourself.
           </p>
           <a
             href="/try-it-now"
             className="inline-block px-8 py-4 text-white text-xl font-semibold bg-gradient-to-r from-emerald-400 via-green-500 to-lime-400 rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
           >
-            Try Skylar's Run Now
+            Try Skylar&apos;s Run Now
           </a>
         </div>
       </section>

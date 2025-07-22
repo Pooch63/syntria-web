@@ -7,7 +7,7 @@ export default function TryItNow() {
       <section className="flex flex-col items-center justify-center py-32 px-4 text-center bg-gradient-to-br from-green-500 via-emerald-500 to-lime-400 mb-16 rounded-b-3xl shadow-lg">
         <h1 className="text-5xl md:text-6xl font-extrabold mb-6 text-white drop-shadow-lg">Try Syntria Now</h1>
         <p className="text-xl md:text-2xl max-w-2xl mb-8 text-white opacity-90">
-          If you're interested in Skylar's Run, or want to invest in the future of healthcare, reach out today.
+          If you&apos;re interested in Skylar&apos;s Run, or want to invest in the future of healthcare, reach out today.
         </p>
         <a
           href="#contact-us"

@@ -1,5 +1,6 @@
 "use client";
-import React, { useRef } from "react";
+import React from "react";
+import Image from "next/image";
 
 const sections = [
   {
@@ -33,9 +34,6 @@ const sections = [
 ];
 
 export default function Landing() {
-  // Testimonials data
-  // Remove testimonials data, scrollRef, scrollByCard, and the testimonials section JSX
-
   return (
     <main className="min-h-screen bg-gradient-to-br from-green-50 via-green-100 to-emerald-100 text-gray-900 font-sans">
       {/* Hero Section */}
@@ -54,7 +52,7 @@ export default function Landing() {
 
       {/* Info Sections */}
       <div className="space-y-20 py-20">
-        {sections.map((section, idx) => (
+        {sections.map((section) => (
           <section
             key={section.title}
             className={`flex flex-col md:flex-row ${section.reverse ? "md:flex-row-reverse" : ""} items-center max-w-6xl mx-auto px-4 md:space-x-12 md:space-x-reverse-12`}
@@ -71,7 +69,7 @@ export default function Landing() {
               <div className="relative w-80 h-80 flex items-center justify-center">
                 {/* Subtle shadow/tint background */}
                 <div className="absolute inset-0 rounded-2xl bg-emerald-200/40 shadow-2xl blur-md" />
-                <img
+                <Image
                   src={section.image}
                   alt={section.title}
                   className="relative w-56 h-56 md:w-72 md:h-72 object-contain opacity-95 drop-shadow-xl z-10"
@@ -84,7 +82,7 @@ export default function Landing() {
 
       {/* Skylar's Run CTA Section */}
       <section className="bg-gradient-to-br from-green-100 via-emerald-100 to-lime-100 py-20 px-6 text-center text-gray-800">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-emerald-500 drop-shadow-md">Discover Skylar's Run</h2>
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-emerald-500 drop-shadow-md">Discover Skylar&apos;s Run</h2>
         <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8 opacity-90">
           Our first product combines engaging experiences with clinically backed strategies to boost cognitive function.
         </p>
@@ -92,7 +90,7 @@ export default function Landing() {
           href="/skylars-run"
           className="inline-block mt-4 px-8 py-4 bg-emerald-600 text-white rounded-full font-semibold shadow-md hover:bg-emerald-700 transition"
         >
-          Try Skylar's Run
+          Try Skylar&apos;s Run
         </a>
       </section>
     </main>
