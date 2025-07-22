@@ -1,10 +1,10 @@
 "use client";
 import React, { useRef } from "react";
-import Image from "next/image";
 import Head from "next/head";
 import { Header } from "../effects/texts";
 import SlideUpOnScroll from "../effects/slide-up-on-scroll";
 import Card from "../effects/card";
+import TextImage from "../effects/text-image";
 
 // Product showcase sections for Skylar's Run
 const showcaseSections = [
@@ -30,7 +30,6 @@ const showcaseSections = [
     reverse: true,
   },
 ];
-
 const testimonials = [
   {
     image: "/images/worker.jpg",
@@ -113,33 +112,35 @@ export default function TheProof() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-green-50 via-green-100 to-emerald-100 text-gray-900 font-sans">
+    <main className="min-h-screen bg-light-bg text-dark-bg font-sans">
       <Head>
         <title>Skylar&apos;s Run</title>
       </Head>
       
       {/* Hero Banner Section */}
-      <section className="w-full bg-gradient-to-br from-emerald-300 via-green-400 to-emerald-500 text-white pt-23 pb-20 px-6">
+      <section className="w-full text-light-bg pt-23 pb-20 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
           {/* Text Section */}
-          <div className="flex-1 text-center md:text-left">
+          <SlideUpOnScroll>
+          <div className="flex-1 text-center text-banner-text">
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg">
               Welcome to Skylar&apos;s Run
             </h1>
-            <p className="text-lg md:text-xl max-w-2xl opacity-90">
+            <p className="text-lg md:text-xl max-w-2xl opacity-90 text-banner-text">
               Game-Based Cognitive Support for Mental Health Improvement™.
               <br/>
               Designed by neuroscientists to make focus fun—and effective,
               this is Syntria&apos;s biggest innovation in the healthcare space.
             </p>
           </div>
+          </SlideUpOnScroll>
 
           {/* Image Section */}
           <div className="flex-1 flex justify-center">
             <div className="relative w-80 h-80 md:w-96 md:h-96">
-              <div className="absolute inset-0 bg-white/10 rounded-3xl blur-lg shadow-inner"></div>
-              <Image
-                src="/images/playing.png"
+              <div className="absolute inset-0 bg-light-bg/10 rounded-3xl blur-lg shadow-inner"></div>
+              <img
+                src="/images/headband.png"
                 alt="Skylar's Run Gameplay"
                 className="relative w-full h-full object-contain drop-shadow-2xl z-10"
               />
@@ -151,36 +152,14 @@ export default function TheProof() {
       {/* Product Showcase Sections */}
       <div className="space-y-20 pt-10 pb-20">
         {showcaseSections.map((section) => (
-          <section
-            key={"SR PS " + section.title}
-            className={`flex flex-col md:flex-row ${section.reverse ? "md:flex-row-reverse" : ""} items-center max-w-6xl mx-auto px-4 md:space-x-12 md:space-x-reverse-12`}
-          >
-            {/* Text Side */}
-            <div className="flex-1 z-10">
-              <div className={`p-8 rounded-3xl bg-gradient-to-br ${section.gradient} shadow-xl mb-6 md:mb-0`}>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow">{section.title}</h2>
-                <p className="text-lg md:text-xl opacity-90 text-white">{section.text}</p>
-              </div>
-            </div>
-            {/* Image Side */}
-            <div className="flex-1 flex justify-center items-center min-h-[300px]">
-              <div className="relative w-80 h-80 flex items-center justify-center">
-                <div className="absolute inset-0 rounded-2xl bg-emerald-200/40 shadow-2xl blur-md" />
-                <Image
-                  src={section.image}
-                  alt={section.title}
-                  className="relative w-56 h-56 md:w-72 md:h-72 object-contain opacity-95 drop-shadow-xl z-10"
-                />
-              </div>
-            </div>
-          </section>
+          <TextImage key={"SR PS " + section.title} {...section} />
         ))}
       </div>
 
       {/* What We Do Section */}
       <section className="max-w-5xl mx-auto px-4 pt-20 text-center">
         <Header text="What We Do" />
-        <p className="text-xl max-w-3xl mx-auto opacity-90">
+        <p className="text-xl max-w-3xl mx-auto opacity-90 text-dark-bg">
           Skylar&apos;s Run causes noticeable improvements in all 5 types of attention, as well as
           8 other functions relating to inhibition, for a total of <b>13</b> cognitive skills.
         </p>
@@ -196,7 +175,7 @@ export default function TheProof() {
           {/* Image Side */}
           <div className="flex-1 relative">
             <div className="w-full h-full rounded-3xl overflow-hidden shadow-2xl">
-              <Image
+              <img
                 src={graph.image}
                 alt={graph.imageAlt}
                 className="w-full h-full object-cover"
@@ -205,9 +184,9 @@ export default function TheProof() {
           </div>
 
           {/* Text Side with Fade Effect */}
-          <SlideUpOnScroll className="flex-1 bg-gradient-to-br from-emerald-400 via-green-500 to-emerald-600 p-8 rounded-3xl shadow-xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-200 mb-4">{graph.header}</h2>
-            <p className="text-lg text-white opacity-90">{graph.subtitle}</p>
+          <SlideUpOnScroll className="flex-1 bg-gradient-to-br from-ltrans to-rtrans p-8 rounded-3xl shadow-xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-hcontrast mb-4">{graph.header}</h2>
+            <p className="text-lg text-ltext opacity-90">{graph.subtitle}</p>
           </SlideUpOnScroll>
         </section>
       ))}
@@ -215,7 +194,7 @@ export default function TheProof() {
       {/* Existing Proof Content */}
       <section className="max-w-4xl mx-auto pt-10 pb-12 px-4 text-center">
         <Header text="The Proof" />
-        <p className="text-xl max-w-2xl mx-auto mb-8 opacity-90">
+        <p className="text-xl max-w-2xl mx-auto mb-8 opacity-90 text-dark-bg">
           Syntria only uses technology backed by years and research and <b>results</b>. Skylar&apos;s Run is no exception.
         </p>
       </section>
@@ -228,61 +207,61 @@ export default function TheProof() {
 
       {/* Clinical Trials Section */}
       <section className="max-w-5xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-emerald-700 mb-8 text-center">8 Clinical Trials. Real Results.</h2>
-        <p className="text-lg text-center mb-10 text-emerald-600 opacity-90">Skylar&apos;s Run is backed by rigorous science. Our clients see improvements in:</p>
+        <h2 className="text-3xl font-bold text-dark-bg mb-8 text-center">8 Clinical Trials. Real Results.</h2>
+        <p className="text-lg text-center mb-10 text-dark-bg opacity-90">Skylar&apos;s Run is backed by rigorous science. Our clients see improvements in:</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <SlideUpOnScroll className="h-full">
-            <div className="flex flex-col items-center h-full bg-gradient-to-br from-green-200 via-emerald-200 to-lime-100 rounded-2xl shadow-xl p-6 hover:scale-105 hover:shadow-2xl transition-transform duration-300 border-2 border-emerald-100">
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-tr from-emerald-400 to-green-400 shadow-lg mb-4 animate-pulse">
-                <span className="text-3xl font-extrabold text-white drop-shadow">1</span>
+            <div className="flex flex-col items-center h-full bg-light-bg rounded-2xl shadow p-6 border-2 border-dark-bg">
+              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-dark-bg shadow mb-4">
+                <span className="text-3xl font-extrabold text-light-bg drop-shadow">1</span>
               </div>
-              <h3 className="text-lg font-bold text-emerald-700 mb-2">Mathematics</h3>
-              <p className="text-sm text-gray-700 opacity-80 text-center">Kids aren&apos;t behind anymore. They improve by 8.3 months on average.</p>
+              <h3 className="text-lg font-bold text-dtext mb-2">Mathematics</h3>
+              <p className="text-sm text-dtext opacity-80 text-center">Kids aren&apos;t behind anymore. They improve by 8.3 months on average.</p>
             </div>
           </SlideUpOnScroll>
           <SlideUpOnScroll className="h-full">
-            <div className="flex flex-col items-center h-full bg-gradient-to-br from-green-200 via-emerald-200 to-lime-100 rounded-2xl shadow-xl p-6 hover:scale-105 hover:shadow-2xl transition-transform duration-300 border-2 border-emerald-100">
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-tr from-emerald-400 to-green-400 shadow-lg mb-4 animate-pulse">
-                <span className="text-3xl font-extrabold text-white drop-shadow">2</span>
+            <div className="flex flex-col items-center h-full bg-light-bg rounded-2xl shadow p-6 border-2 border-dark-bg">
+              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-dark-bg shadow mb-4">
+                <span className="text-3xl font-extrabold text-light-bg drop-shadow">2</span>
               </div>
-              <h3 className="text-lg font-bold text-emerald-700 mb-2">Homework</h3>
-              <p className="text-sm text-gray-700 opacity-80 text-center">Expect a 36% increase in your child&apos;s homework completion.</p>
+              <h3 className="text-lg font-bold text-dtext mb-2">Homework</h3>
+              <p className="text-sm text-dtext opacity-80 text-center">Expect a 36% increase in your child&apos;s homework completion.</p>
             </div>
           </SlideUpOnScroll>
           <SlideUpOnScroll className="h-full">
-            <div className="flex flex-col items-center h-full bg-gradient-to-br from-green-200 via-emerald-200 to-lime-100 rounded-2xl shadow-xl p-6 hover:scale-105 hover:shadow-2xl transition-transform duration-300 border-2 border-emerald-100">
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-tr from-emerald-400 to-green-400 shadow-lg mb-4 animate-pulse">
-                <span className="text-3xl font-extrabold text-white drop-shadow">3</span>
+            <div className="flex flex-col items-center h-full bg-light-bg rounded-2xl shadow p-6 border-2 border-dark-bg">
+              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-dark-bg shadow mb-4">
+                <span className="text-3xl font-extrabold text-light-bg drop-shadow">3</span>
               </div>
-              <h3 className="text-lg font-bold text-emerald-700 mb-2">Testing</h3>
-              <p className="text-sm text-gray-700 opacity-80 text-center">Your child can now prove how smart they are, with 30-40% test score improvements.</p>
+              <h3 className="text-lg font-bold text-dtext mb-2">Testing</h3>
+              <p className="text-sm text-dtext opacity-80 text-center">Your child can now prove how smart they are, with 30-40% test score improvements.</p>
             </div>
           </SlideUpOnScroll>
           <SlideUpOnScroll className="h-full">
-            <div className="flex flex-col items-center h-full bg-gradient-to-br from-green-200 via-emerald-200 to-lime-100 rounded-2xl shadow-xl p-6 hover:scale-105 hover:shadow-2xl transition-transform duration-300 border-2 border-emerald-100">
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-tr from-emerald-400 to-green-400 shadow-lg mb-4 animate-pulse">
-                <span className="text-3xl font-extrabold text-white drop-shadow">4</span>
+            <div className="flex flex-col items-center h-full bg-light-bg rounded-2xl shadow p-6 border-2 border-dark-bg">
+              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-dark-bg shadow mb-4">
+                <span className="text-3xl font-extrabold text-light-bg drop-shadow">4</span>
               </div>
-              <h3 className="text-lg font-bold text-emerald-700 mb-2">Reading</h3>
-              <p className="text-sm text-gray-700 opacity-80 text-center">Kids&apos; worth isn&apos;t measured by their reading level. But if it were, they&apos;d be 6.6 months richer after playing.</p>
+              <h3 className="text-lg font-bold text-dtext mb-2">Reading</h3>
+              <p className="text-sm text-dtext opacity-80 text-center">Kids&apos; worth isn&apos;t measured by their reading level. But if it were, they&apos;d be 6.6 months richer after playing.</p>
             </div>
           </SlideUpOnScroll>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-100 via-green-50 to-lime-100 relative">
+      <section className="py-20 bg-gradient-to-br from-ltrans to-rtrans relative">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-10 text-emerald-700 drop-shadow">What People Are Saying</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-10 text-dark-bg drop-shadow">What People Are Saying</h2>
           <div className="relative">
             {/* Left Arrow */}
             <button
               type="button"
               aria-label="Scroll testimonials left"
               onClick={() => scrollByCard(-1)}
-              className="hidden cursor-pointer md:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-emerald-100 rounded-full shadow-lg p-2 border border-emerald-200 transition"
+              className="hidden cursor-pointer md:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-light-bg/80 hover:bg-dark-bg rounded-full shadow-lg p-2 border border-ltrans transition"
             >
-              <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-emerald-700">
+              <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-dark-bg hover:text-light-bg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
@@ -291,9 +270,9 @@ export default function TheProof() {
               type="button"
               aria-label="Scroll testimonials right"
               onClick={() => scrollByCard(1)}
-              className="hidden cursor-pointer md:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-emerald-100 rounded-full shadow-lg p-2 border border-emerald-200 transition"
+              className="hidden cursor-pointer md:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-light-bg/80 hover:bg-dark-bg rounded-full shadow-lg p-2 border border-ltrans transition"
             >
-              <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-emerald-700">
+              <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-dark-bg hover:text-light-bg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
@@ -305,16 +284,16 @@ export default function TheProof() {
               {testimonials.map((t, idx) => (
                 <div
                   key={"Testimonial SR " + idx}
-                  className="testimonial-card flex flex-col items-center bg-white rounded-3xl shadow-xl p-8 min-w-[320px] max-w-xs mx-auto snap-center transition-transform duration-300"
+                  className="testimonial-card flex flex-col items-center bg-light-bg rounded-3xl shadow-xl p-8 min-w-[320px] max-w-xs mx-auto snap-center transition-transform duration-300 border-2 border-ltrans"
                 >
-                  <Image
+                  <img
                     src={t.image}
                     alt={t.name}
-                    className="w-32 h-32 rounded-full object-cover mb-6 shadow-lg border-4 border-emerald-100"
+                    className="w-32 h-32 rounded-full object-cover mb-6 shadow-lg border-4 border-ltrans"
                   />
-                  <p className="text-lg italic mb-4 text-gray-700">“{t.text}”</p>
-                  <div className="font-semibold text-emerald-700">{t.name}</div>
-                  <div className="text-sm text-gray-500">{t.role}</div>
+                  <p className="text-lg italic mb-4 text-dark-bg">“{t.text}”</p>
+                  <div className="font-semibold text-dark-bg">{t.name}</div>
+                  <div className="text-sm text-ltrans">{t.role}</div>
                 </div>
               ))}
             </div>
@@ -325,13 +304,13 @@ export default function TheProof() {
       {/* CTA Button Section */}
       <section className="py-16 bg-transparent text-center">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-emerald-700 mb-6">Ready to Transform Attention?</h2>
-          <p className="text-lg md:text-xl text-gray-700 opacity-90 mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-dark-bg mb-6">Ready to Transform Attention?</h2>
+          <p className="text-lg md:text-xl text-dark-bg opacity-90 mb-8">
             Give Skylar&apos;s Run a try today and see the results for yourself.
           </p>
           <a
             href="/try-it-now"
-            className="inline-block px-8 py-4 text-white text-xl font-semibold bg-gradient-to-r from-emerald-400 via-green-500 to-lime-400 rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
+            className="inline-block px-8 py-4 text-light-bg text-xl font-semibold bg-gradient-to-r from-ltrans to-rtrans rounded-full shadow-lg hover:bg-dark-bg transition"
           >
             Try Skylar&apos;s Run Now
           </a>

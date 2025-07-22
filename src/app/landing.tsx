@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
-import Image from "next/image";
+import TextImage from "./effects/text-image";
 
 const sections = [
   {
     title: "Clinician-Supported Design",
     text: "Personalized implementation and support ensures products are integrated effectively in care settings - ensuring seamless integration into workflow.",
     image: "/images/brain.png",
-    gradient: "from-green-400 via-green-500 to-emerald-500",
+    gradient: "from-ltrans to-dark-bg",
     reverse: false,
   },
   {
@@ -35,60 +35,47 @@ const sections = [
 
 export default function Landing() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-green-50 via-green-100 to-emerald-100 text-gray-900 font-sans">
+    <main className="min-h-screen bg-light-bg font-sans">
       {/* Hero Section */}
-      <section id="qui" className="flex flex-col items-center justify-center py-24 px-4 text-center bg-gradient-to-br from-green-500 via-emerald-500 to-lime-400">
-        <h1 className="montserrat text-5xl md:text-7xl font-extrabold mb-6 drop-shadow-lg text-white">Syntria</h1>
-        <p className="text-xl md:text-2xl max-w-2xl mb-8 opacity-90 text-white">
-        Shaping the Future of Improving Cognitive Skills
+      <section id="qui" className="flex flex-col items-center justify-center py-24 px-4 text-center">
+        <h1 className="montserrat text-3xl md:text-5xl mb-6 drop-shadow-lg text-gray-500 text-balance">Shaping the Future of Improving Cognitive Skills
+        </h1>
+        <p className="text-base md:text-lg max-w-2xl mb-8 opacity-90 text-ltext">
+          Millions of people face uncertainty and limited options when it comes to diagnosing and treating rare diseases,
+          where complexity and data fragmentation slow progress. Syntria&apos;s cutting-edge AI platform unifies diverse
+          medical data to empower researchers and clinicians, driving faster insights and breakthroughs that bring hope
+          and effective therapies to those who need them most.
         </p>
         <a
           href="/try-it-now"
-          className="mt-4 px-8 py-3 bg-white text-green-700 rounded-full font-semibold shadow-lg hover:bg-green-100 transition"
+          className="mt-4 px-8 py-3 bg-dark-bg text-hcontrast rounded-full font-semibold shadow-lg hover:bg-dtext transition"
         >
           Get Started
         </a>
+
+        <img
+          src="/images/brain-body.jpg"
+          alt="Giant Display Image"
+          className="mt-12 w-full max-w-3xl mx-auto rounded-lg shadow-xl"
+        />
       </section>
 
       {/* Info Sections */}
-      <div className="space-y-20 py-20">
+      <div className="space-y-10 py-20">
         {sections.map((section) => (
-          <section
-            key={section.title}
-            className={`flex flex-col md:flex-row ${section.reverse ? "md:flex-row-reverse" : ""} items-center max-w-6xl mx-auto px-4 md:space-x-12 md:space-x-reverse-12`}
-          >
-            {/* Text Side */}
-            <div className="flex-1 z-10">
-              <div className={`p-8 rounded-3xl bg-gradient-to-br ${section.gradient} shadow-xl mb-6 md:mb-0`}>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow">{section.title}</h2>
-                <p className="text-lg md:text-xl opacity-90 text-white">{section.text}</p>
-              </div>
-            </div>
-            {/* Image Side */}
-            <div className="flex-1 flex justify-center items-center min-h-[300px]">
-              <div className="relative w-80 h-80 flex items-center justify-center">
-                {/* Subtle shadow/tint background */}
-                <div className="absolute inset-0 rounded-2xl bg-emerald-200/40 shadow-2xl blur-md" />
-                <Image
-                  src={section.image}
-                  alt={section.title}
-                  className="relative w-56 h-56 md:w-72 md:h-72 object-contain opacity-95 drop-shadow-xl z-10"
-                />
-              </div>
-            </div>
-          </section>
+          <TextImage {...section} />
         ))}
       </div>
 
       {/* Skylar's Run CTA Section */}
-      <section className="bg-gradient-to-br from-green-100 via-emerald-100 to-lime-100 py-20 px-6 text-center text-gray-800">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-emerald-500 drop-shadow-md">Discover Skylar&apos;s Run</h2>
-        <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8 opacity-90">
+      <section className="bg-gradient-to-br py-20 px-6 text-center text-gray-800">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-dark-bg drop-shadow-md">Discover Skylar&apos;s Run</h2>
+        <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 opacity-90">
           Our first product combines engaging experiences with clinically backed strategies to boost cognitive function.
         </p>
         <a
           href="/skylars-run"
-          className="inline-block mt-4 px-8 py-4 bg-emerald-600 text-white rounded-full font-semibold shadow-md hover:bg-emerald-700 transition"
+          className="inline-block mt-4 px-8 py-4 bg-ltrans text-white rounded-full font-semibold shadow-md hover:bg-rtrans transition"
         >
           Try Skylar&apos;s Run
         </a>

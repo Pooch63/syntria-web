@@ -15,18 +15,19 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const currentPath = usePathname();
 
-  const navClass = clsx(
-    "w-full px-8 py-4 flex items-center justify-between z-50 transition-all duration-300",
-    heros.includes(currentPath)
-      ? "bg-transparent absolute"
-      : "bg-gradient-to-br from-green-500 via-emerald-500 to-lime-600 fixed top-0 left-0"
-  );
+  const navClass = 
+    "w-full px-8 py-4 flex items-center justify-between z-50 transition-all duration-300 " +
+    "bg-gradient-to-br from-ltrans to-rtrans fixed top-0 left-0";
 
   return (
-    <>
-      <nav className={clsx(navClass,
-        !heros.includes(currentPath) && !menuOpen ? "shadow-md" : ""
-      )}>
+    <div className="flex justify-center items-center flex-col">
+      <div className="w-full px-4 pt-6 z-50 flex justify-center bg-light-bg">
+        <nav
+          className={clsx(
+            "w-full max-w-5xl px-6 py-4 flex items-center justify-between rounded-2xl shadow-xl transition-all duration-300 bg-gradient-to-br from-ltrans to-rtrans",
+            !heros.includes(currentPath) && !menuOpen ? "shadow-md" : ""
+          )}
+        >
         <div className="flex items-center space-x-3">
           <span className="text-2xl font-extrabold text-white tracking-wide drop-shadow">Syntria</span>
         </div>
@@ -37,7 +38,7 @@ export default function Nav() {
             <li key={item.name}>
               <a
                 href={item.href}
-                className="text-white text-lg font-semibold hover:text-green-100 transition-colors duration-200 px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
+                className="text-white text-ltext font-semibold hover:text-dtext transition-colors duration-200 px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
               >
                 {item.name}
               </a>
@@ -74,11 +75,12 @@ export default function Nav() {
           </div>
         </button>
       </nav>
+      </div>
 
       {/* Mobile Dropdown Menu */}
       <div
         className={clsx(
-          "md:hidden fixed top-0 left-0 w-full bg-gradient-to-br from-[#00FF00] to-[#10FF88] z-40 transition-all duration-300 ease-in-out overflow-hidden",
+          "md:hidden fixed top-0 left-0 w-full bg-gradient-to-br from-light-bg to-dark-bg z-40 transition-all duration-300 ease-in-out overflow-hidden",
           menuOpen ? "max-h-96 pt-20 opacity-100" : "max-h-0 opacity-0"
         )}
       >
@@ -96,6 +98,6 @@ export default function Nav() {
           ))}
         </ul>
       </div>
-    </>
+    </div>
   );
 }

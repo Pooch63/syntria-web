@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Gotham Book';
+  src: url('/fonts/gotham-bold-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 .montserrat {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
@@ -14,6 +21,17 @@
   --foreground: #171717;
 }
 
+@theme {
+  --color-ltrans: #C0C9EE;
+  --color-rtrans: #A2AADB;
+  /* --color-light-bg: #FFF2E0; */
+  --color-light-bg: #f0ebe5;
+  --color-dark-bg: #898AC4;
+  --color-ltext: #6b7280;
+  --color-dtext: #5a616b;
+  --color-hcontrast: #fff;
+  --color-banner-text: #747171;
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -31,7 +49,9 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
+
+  font-family: 'Gotham Book', sans-serif;
 }
 * {
   /* font-family: "Montserrat", sans-serif;
@@ -52,8 +72,11 @@ body {
   }
 }
 
+h2 {
+  line-height: 1.2em;
+}
+
 #qui {
-  background-image: linear-gradient(to bottom right, #22c55e, #10b981, #a3e635);
   -webkit-mask-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 1) 90%,

@@ -9,7 +9,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-gradient-to-br from-green-50 via-green-100 to-emerald-100 text-gray-900 font-sans">
+      <body className="bg-light-bg text-dark-bg font-sans">
         <Nav />
         <main>{children}</main>
         <Footer />
