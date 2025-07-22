@@ -2,10 +2,11 @@
 import React from "react";
 import Link from "next/link";
 import recommendReroute from "./reroute";
-import currentPath from "./currentPath";
+import { usePathname } from "next/navigation";
 
 export default function NotFound() {
-  const recommended = recommendReroute();
+  const currentPathname = usePathname();
+  const recommended = recommendReroute({ currentPathname });
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-green-200 via-white to-green-100 text-gray-800 px-6 text-center relative overflow-hidden">
@@ -26,15 +27,15 @@ export default function NotFound() {
         Page Not Found
       </h2>
       <p className="mt-4 max-w-md text-gray-600 z-10">
-        {recommended != null && <>Maybe a typo? {currentPath()} does kinda look like <a href={recommended} className="underline">{recommended}</a>.</>}
+        {recommended != null && <>Maybe a typo? {currentPathname} does kinda look like <Link href={recommended} className="underline">{recommended}</Link>.</>}
         {recommended == null && <>We couldn&apos;t figure out what you meant, so we&apos;ll just bring you <Link href='/'>back home</Link>.</>}
       </p>
-      <a
+      <Link
         href="/"
         className="mt-8 px-6 py-3 bg-green-500 hover:bg-green-600 text-white text-lg rounded-xl transition shadow-md z-10"
       >
         Return to Homepage
-      </a>
+      </Link>
     </div>
   );
 }

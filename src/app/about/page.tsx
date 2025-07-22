@@ -96,7 +96,7 @@ export default function AboutUs() {
 
       <section className="max-w-3xl mx-auto px-4 py-12 text-center">
         <h2 className="text-2xl font-bold text-emerald-700 mb-4">You belong on this list.</h2>
-        <p className="mb-6 text-lg opacity-90">We're always looking for new talent. Reach out today and make a difference!</p>
+        <p className="mb-6 text-lg opacity-90">We&apos;re always looking for new talent. Reach out today and make a difference!</p>
         <a
           href="mailto:hello@syntria.com"
           className="inline-block px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-400 text-white rounded-full font-semibold shadow-lg hover:bg-green-600 transition"
@@ -114,11 +114,11 @@ export default function AboutUs() {
             icon={<Gamepad2 color="#fff" />}
             date="2011-2014"
           >
-            <h2 className="vertical-timeline-element-title">Skylar's Run Rolls Out</h2>
-            <h3 className="vertical-timeline-element-subtitle">Thynk's Flagship Product</h3>
+            <h2 className="vertical-timeline-element-title">Skylar&apos;s Run Rolls Out</h2>
+            <h3 className="vertical-timeline-element-subtitle">Thynk&apos;s Flagship Product</h3>
             <br />
             <h6>
-              Skylar's Run video game is finished. First clients with ADHD have promising improvements
+              Skylar&apos;s Run video game is finished. First clients with ADHD have promising improvements
             </h6>
           </TimelineElement>
           <TimelineElement

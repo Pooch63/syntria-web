@@ -187,7 +187,6 @@ export default function TheProof() {
       </section>
 
       {/* Game Image + Gradient Text Section */}
-      {console.log(graphs)}
       {graphs.map((graph, idx) => (
         <section
         key={"Graph SR " + idx}

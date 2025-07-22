@@ -2,7 +2,6 @@
 // and make recommendations for where they may have intended to go
 
 import { distance } from "fastest-levenshtein";
-import currentPath from "./currentPath";
 
 const routes = [
     '/about',
@@ -10,11 +9,9 @@ const routes = [
     '/try-it-now'
 ];
 
-export default function recommendReroute() {
-    const path = currentPath();
-
+export default function recommendReroute({ currentPathname }: { currentPathname: string }) {
     for (const route of routes) {
-        if (distance(route, path) <= 4) return route;
+        if (distance(route, currentPathname) <= 4) return route;
     }
     return null;
 }
