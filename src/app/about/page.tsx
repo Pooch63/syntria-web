@@ -61,7 +61,7 @@ export default function AboutUs() {
 
       <section className="max-w-5xl mx-auto px-4 py-12">
         <h2 className="text-3xl font-bold text-dark-bg mb-8 text-center">Meet the Team</h2>
-        <p className="text-xl max-w-2xl mx-auto mb-8 opacity-90 text-dark-bg">From business to marketing, healthcare to regulatory, our team has it all.</p>
+        <p className="text-xl max-w-2xl mx-auto mb-8 opacity-90 text-dark-bg text-center text-balance">From business to marketing, healthcare to regulatory, our team has it all.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {team.map((member) => (
             <button
@@ -72,7 +72,7 @@ export default function AboutUs() {
             >
               {/* Expertise Banner */}
               <div className="w-full -mt-8 mb-4">
-                <div className="mx-auto w-40 py-2 rounded-full bg-gradient-to-r from-ltrans to-rtrans text-white font-bold text-center shadow-md text-sm tracking-wide">
+                <div className="mx-auto w-45 py-2 rounded-full bg-gradient-to-r from-ltrans to-rtrans text-white font-bold text-center shadow-md text-sm tracking-wide">
                   {member.expertise}
                 </div>
               </div>

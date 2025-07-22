@@ -17,7 +17,7 @@ const showcaseSections = [
   },
   {
     title: "When Reward Leads to Results",
-    text: "Players can only push Skylar forward when EEG technology detects that they're paying attention. This leads to one simple equation: more attention, better gameplay, which instantly improves your child's short and long-term attention abilities.",
+    text: "Players can only push Skylar forward when EEG technology detects that they're paying attention. This leads to one simple equation: more attention = better gameplay, which instantly improves your child's short and long-term attention abilities.",
     image: "/images/skylar-preview-2.jpg",
     gradient: "from-emerald-400 via-green-500 to-lime-400",
     reverse: false,
@@ -80,7 +80,7 @@ const graphs = [
   {
     image: "/images/skylars-run-reductions.png",
     imageAlt: "Skylar's Run Study Findings",
-    header: "Skylar's Run Reduces ADHD And Makes it Stay That Way",
+    header: "Skylar's Run Reduces ADHD And Keeps it That Way",
     subtitle: "4 clinical trials have found that while playing Skylar's Run, ADHD-related symptoms face a sharp decline. "
           + "After your playing period, you don't have to worry about rebounding - the game has already made its mark.",
     reverse: true
@@ -159,7 +159,7 @@ export default function TheProof() {
       {/* What We Do Section */}
       <section className="max-w-5xl mx-auto px-4 pt-20 text-center">
         <Header text="What We Do" />
-        <p className="text-xl max-w-3xl mx-auto opacity-90 text-dark-bg">
+        <p className="text-xl max-w-3xl mx-auto opacity-90 text-ltext">
           Skylar&apos;s Run causes noticeable improvements in all 5 types of attention, as well as
           8 other functions relating to inhibition, for a total of <b>13</b> cognitive skills.
         </p>
