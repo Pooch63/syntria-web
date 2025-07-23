@@ -63,12 +63,12 @@ export default function AboutUs() {
       <section className="max-w-5xl mx-auto px-4 py-12">
         <h2 className="text-3xl font-bold text-dark-bg mb-8 text-center">Meet the Team</h2>
         <p className="text-xl max-w-2xl mx-auto mb-8 opacity-90 text-dark-bg text-center text-balance">From business to marketing, healthcare to regulatory, our team has it all.</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-stretch">
           {team.map((member) => (
             <SlideUpOnScroll key={"About Member " + member.name}>
               <button
                 onClick={() => window.location.href = `mailto:hello@syntria.com?subject=Contacting ${member.name}`}
-                className="bg-light-bg rounded-3xl border-2 border-ltrans shadow-xl p-6 flex flex-col items-center transition transform hover:-translate-y-2 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-ltrans cursor-pointer group"
+                className="h-full bg-light-bg rounded-3xl border-2 border-ltrans shadow-xl p-6 flex flex-col items-center transition transform hover:-translate-y-2 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-ltrans cursor-pointer group"
                 type="button"
               >
                 {/* Expertise Banner */}
