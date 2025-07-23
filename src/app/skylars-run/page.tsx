@@ -310,7 +310,7 @@ export default function TheProof() {
           </p>
           <a
             href="/try-it-now"
-            className="inline-block px-8 py-4 text-light-bg text-xl font-semibold bg-gradient-to-r from-ltrans to-rtrans rounded-full shadow-lg hover:bg-dark-bg transition"
+            className="inline-block px-8 py-4 text-light-bg text-xl font-semibold bg-gradient-to-r from-ltrans to-rtrans rounded-full shadow-lg hover:bg-dark-bg transition transition-transform duration-300 scale-100 hover:scale-[1.1]"
           >
             Try Skylar&apos;s Run Now
           </a>

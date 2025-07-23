@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import TextImage from "./effects/text-image";
+import { TextCarousel } from "./effects/texts";
 
 const sections = [
   {
@@ -40,17 +41,19 @@ export default function Landing() {
       <section id="qui" className="flex flex-col items-center justify-center py-24 px-4 text-center">
         <h1 className="montserrat text-3xl md:text-5xl mb-6 drop-shadow-lg text-gray-500 text-balance">Shaping the Future of Improving Cognitive Skills
         </h1>
-        <p className="text-base md:text-lg max-w-2xl mb-8 opacity-90 text-ltext">
-          Millions of people face uncertainty and limited options when it comes to diagnosing and treating rare diseases,
-          where complexity and data fragmentation slow progress. Syntria&apos;s cutting-edge AI platform unifies diverse
-          medical data to empower researchers and clinicians, driving faster insights and breakthroughs that bring hope
-          and effective therapies to those who need them most.
-        </p>
+        <div className="w-[100%]">
+          <TextCarousel messages={[
+            "Cutting-Edge AI Solutions",
+            "Mental Health Treatments that Stick",
+            "Cognition like Never Before",
+            "Syntria"
+          ]}/>
+        </div>
         <a
           href="/try-it-now"
           className="mt-4 px-8 py-3 bg-dark-bg text-hcontrast rounded-full font-semibold shadow-lg hover:bg-dtext transition"
         >
-          Get Started
+          Learn More
         </a>
 
         <img
@@ -77,7 +80,7 @@ export default function Landing() {
           href="/skylars-run"
           className="inline-block mt-4 px-8 py-4 bg-ltrans text-white rounded-full font-semibold shadow-md hover:bg-rtrans transition"
         >
-          Try Skylar&apos;s Run
+          Try Skylar&apos;s Run Now
         </a>
       </section>
     </main>

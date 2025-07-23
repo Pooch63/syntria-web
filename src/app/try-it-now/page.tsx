@@ -25,7 +25,7 @@ export default function TryItNow() {
       <section className="max-w-3xl mx-auto px-4 py-12 text-center" id="contact-us">
         <h2 className="text-2xl font-bold text-dark-bg mb-4">Ready to experience the future?</h2>
         <p className="mb-6 text-lg opacity-90 text-dark-bg">Prepare to enter a new era.</p>
-        <a className="inline-block px-10 py-4 bg-gradient-to-r from-ltrans to-rtrans text-light-bg rounded-full font-semibold shadow-lg hover:bg-dark-bg hover:text-light-bg transition text-lg"
+        <a className="inline-block px-10 py-4 bg-gradient-to-r from-ltrans to-rtrans text-light-bg rounded-full font-semibold shadow-lg hover:bg-dark-bg hover:text-light-bg transition text-lg transition-transform duration-300 scale-100 hover:scale-[1.1]"
           href="mailto:hello@syntria.org"
         >
           Contact Us
