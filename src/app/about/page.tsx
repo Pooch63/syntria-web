@@ -5,11 +5,12 @@ import { VerticalTimeline } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { TimelineElement } from "../effects/timeline";
 import { Building2, Gamepad2 } from 'lucide-react';
+import SlideUpOnScroll from "../effects/slide-up-on-scroll";
 
 const team = [
   {
     name: "Kate Flathers",
-    role: "CEO",
+    role: "Chief Product Officer",
     image: "/images/kate-flathers.jpg",
     expertise: "Product Management",
     bio: "With 15 years experience in healthcare product development, Kate oversaw the launch of "
@@ -24,7 +25,7 @@ const team = [
   },
   {
     name: "John Loughnane, MD",
-    role: "CRO: Chief Random Officer",
+    role: "Advisor",
     image: "/images/john-loughnane.jpg",
     expertise: "Tech / Investment",
     bio: "John is the Former Chief of Innovation at CCA & WSV, and he's led tech-driven care models "
@@ -64,30 +65,31 @@ export default function AboutUs() {
         <p className="text-xl max-w-2xl mx-auto mb-8 opacity-90 text-dark-bg text-center text-balance">From business to marketing, healthcare to regulatory, our team has it all.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {team.map((member) => (
-            <button
-              key={member.name}
-              onClick={() => window.location.href = `mailto:hello@syntria.com?subject=Contacting ${member.name}`}
-              className="bg-light-bg rounded-3xl border-2 border-ltrans shadow-xl p-6 flex flex-col items-center transition transform hover:-translate-y-2 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-ltrans cursor-pointer group"
-              type="button"
-            >
-              {/* Expertise Banner */}
-              <div className="w-full -mt-8 mb-4">
-                <div className="mx-auto w-45 py-2 rounded-full bg-gradient-to-r from-ltrans to-rtrans text-white font-bold text-center shadow-md text-sm tracking-wide">
-                  {member.expertise}
+            <SlideUpOnScroll key={"About Member " + member.name}>
+              <button
+                onClick={() => window.location.href = `mailto:hello@syntria.com?subject=Contacting ${member.name}`}
+                className="bg-light-bg rounded-3xl border-2 border-ltrans shadow-xl p-6 flex flex-col items-center transition transform hover:-translate-y-2 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-ltrans cursor-pointer group"
+                type="button"
+              >
+                {/* Expertise Banner */}
+                <div className="w-full -mt-8 mb-4">
+                  <div className="mx-auto w-45 py-2 rounded-full bg-gradient-to-r from-ltrans to-rtrans text-white font-bold text-center shadow-md text-sm tracking-wide">
+                    {member.expertise}
+                  </div>
                 </div>
-              </div>
-              <div className="relative w-32 h-32 mb-4">
-                <div className="absolute inset-0 rounded-full bg-ltrans/40 shadow-2xl blur-md" />
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="relative w-28 h-28 object-cover rounded-full border-4 border-ltrans z-10 group-hover:scale-105 transition"
-                />
-              </div>
-              <h3 className="text-xl font-semibold text-dark-bg mb-1">{member.name}</h3>
-              <p className="text-ltrans font-medium mb-2">{member.role}</p>
-              <p className="text-dark-bg text-sm opacity-80">{member.bio}</p>
-            </button>
+                <div className="relative w-32 h-32 mb-4">
+                  <div className="absolute inset-0 rounded-full bg-ltrans/40 shadow-2xl blur-md" />
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="relative w-28 h-28 object-cover rounded-full border-4 border-ltrans z-10 group-hover:scale-105 transition"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-dark-bg mb-1">{member.name}</h3>
+                <p className="text-ltrans font-medium mb-2">{member.role}</p>
+                <p className="text-dark-bg text-sm opacity-80">{member.bio}</p>
+              </button>
+            </SlideUpOnScroll>
           ))}
         </div>
       </section>

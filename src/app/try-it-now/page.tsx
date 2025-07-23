@@ -1,14 +1,17 @@
 import React from "react";
 import Card from "../effects/card";
+import SlideUpOnScroll from "../effects/slide-up-on-scroll";
 
 export default function TryItNow() {
   return (
     <main className="min-h-screen bg-light-bg text-dark-bg font-sans pb-20">
       <section className="flex flex-col items-center justify-center pt-32 pb-5 px-4 text-center mb-16 rounded-b-3xl w-full text-light-bg">
-        <h1 className="text-5xl md:text-6xl font-extrabold mb-6 text-dark-bg drop-shadow-lg">Try Syntria Now</h1>
-        <p className="text-xl md:text-2xl max-w-2xl mb-8 text-banner-text opacity-90">
-          If you&apos;re interested in Skylar&apos;s Run, or want to invest in the future of healthcare, reach out today.
-        </p>
+        <SlideUpOnScroll>
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 text-dark-bg drop-shadow-lg">Try Syntria Now</h1>
+          <p className="text-xl md:text-2xl max-w-2xl mb-8 text-banner-text opacity-90">
+            If you&apos;re interested in Skylar&apos;s Run, or want to invest in the future of healthcare, reach out today.
+          </p>
+        </SlideUpOnScroll>
         <a
           href="#contact-us"
           className="mt-4 px-10 py-4 bg-dark-bg text-light-bg rounded-full font-semibold shadow-lg hover:bg-ltrans hover:text-ltext transition text-lg"

@@ -26,7 +26,7 @@ export function TextCarousel({
 
 
   return (
-    <div className="w-[100%] overflow-x-hidden relative h-12 text-center text-3xl text-gray-800">
+    <div className="w-full overflow-hidden min-h-12 relative text-center text-3xl text-gray-800">
       <AnimatePresence>
         <motion.div
           key={messages[index]}
@@ -34,7 +34,7 @@ export function TextCarousel({
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -50 }}
           transition={{ duration: 0.8 }}
-          className="absolute w-full"
+          className="w-full"
         >
           {messages[index]}
         </motion.div>
