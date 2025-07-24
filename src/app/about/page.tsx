@@ -67,8 +67,7 @@ export default function AboutUs() {
           {team.map((member) => (
             <SlideUpOnScroll key={"About Member " + member.name}>
               <button
-                onClick={() => window.location.href = `mailto:hello@syntria.com?subject=Contacting ${member.name}`}
-                className="h-full bg-light-bg rounded-3xl border-2 border-ltrans shadow-xl p-6 flex flex-col items-center transition transform hover:-translate-y-2 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-ltrans cursor-pointer group"
+                className="h-full bg-light-bg rounded-3xl border-2 border-ltrans shadow-xl p-6 flex flex-col items-center transition transform hover:-translate-y-2 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-ltrans group"
                 type="button"
               >
                 {/* Expertise Banner */}

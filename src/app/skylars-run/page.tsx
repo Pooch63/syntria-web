@@ -209,7 +209,7 @@ export default function TheProof() {
       <section className="max-w-5xl mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold text-dark-bg mb-8 text-center">8 Clinical Trials. Real Results.</h2>
         <p className="text-lg text-center mb-10 text-dark-bg opacity-90">Skylar&apos;s Run is backed by rigorous science. Our clients see improvements in:</p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <SlideUpOnScroll className="h-full">
             <div className="flex flex-col items-center h-full bg-light-bg rounded-2xl shadow p-6 border-2 border-dark-bg">
               <div className="w-16 h-16 flex items-center justify-center rounded-full bg-dark-bg shadow mb-4">
