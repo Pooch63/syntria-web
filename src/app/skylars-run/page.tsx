@@ -278,7 +278,7 @@ export default function TheProof() {
             </button>
             <div
               ref={scrollRef}
-              className="flex overflow-x-hidden gap-8 scrollbar-hide py-2 px-1 scroll-smooth snap-x snap-mandatory"
+              className="flex overflow-x-auto md:overflow-x-hidden gap-8 scrollbar-hide py-2 px-1 scroll-smooth snap-x snap-mandatory"
               style={{ scrollBehavior: "smooth" }}
             >
               {testimonials.map((t, idx) => (

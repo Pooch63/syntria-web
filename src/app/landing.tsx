@@ -41,13 +41,16 @@ export default function Landing() {
       <section id="qui" className="flex flex-col items-center justify-center py-24 px-4 text-center">
         <h1 className="montserrat text-3xl md:text-5xl mb-6 drop-shadow-lg text-gray-500 text-balance">Shaping the Future of Improving Cognitive Skills
         </h1>
-        <div className="w-[100%]">
+        <div className="w-[100%] hidden md:block">
           <TextCarousel messages={[
             "Cutting-Edge AI Solutions",
             "Mental Health Treatments that Stick",
             "Cognition like Never Before",
             "Syntria"
           ]}/>
+        </div>
+        <div className="w-[100%] block md:hidden">
+          <p className="text-center text-3xl text-gray-800">Syntria</p>
         </div>
         <a
           href="/try-it-now"
