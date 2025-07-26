@@ -4,7 +4,7 @@ import { Header } from "../effects/texts";
 import { VerticalTimeline } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { TimelineElement } from "../effects/timeline";
-import { Building2, Gamepad2 } from 'lucide-react';
+import { Building2, Gamepad2, AudioWaveform, BriefcaseBusiness, Calendar } from 'lucide-react';
 import SlideUpOnScroll from "../effects/slide-up-on-scroll";
 
 const team = [
@@ -109,23 +109,65 @@ export default function AboutUs() {
         <VerticalTimeline>
           <TimelineElement
             icon={<Gamepad2 color="#fff" />}
-            date="2011-2014"
+            date="2011-2021"
+            dateClassName="text-hcontrast md:text-dtext center"
           >
-            <h2 className="text-hcontrast">Skylar&apos;s Run Rolls Out</h2>
-            <h3 className="vertical-timeline-element-subtitle">Thynk&apos;s Flagship Product</h3>
+            <h2 className="text-hcontrast">Skylar&apos;s Run Research</h2>
+            <h3 className="vertical-timeline-element-subtitle">A Decade of Knowledge</h3>
             <br />
             <h6>
-              Skylar&apos;s Run video game is finished. First clients with ADHD have promising improvements
+              8 independent studies and 6 additional publications are produced, all of which
+              find that Skylar's Run improves cognition.
             </h6>
           </TimelineElement>
           <TimelineElement
             icon={<Building2 color="#fff" />}
+            date="2022-2023"
+            dateClassName="text-hcontrast md:text-dtext center"
           >
             <h2 className="text-hcontrast">Thynk Begins</h2>
             <h3 className="vertical-timeline-element-subtitle">Newton, MA</h3>
             <br />
             <h6>
-              Thynk founded. The company uses EEG video gaming to improve attention
+              Thynk begins, taking over Skylar's Run and fueling more R&D to improve the product.
+            </h6>
+          </TimelineElement>
+          <TimelineElement
+            icon={<AudioWaveform color="#fff" />}
+            date="2024-2025"
+            dateClassName="text-hcontrast md:text-dtext center"
+          >
+            <h2 className="text-hcontrast">Skylar's Run Kicks Off</h2>
+            <h3 className="vertical-timeline-element-subtitle">Distribution Begins</h3>
+            <br />
+            <h6>
+              Thynk launches pilot programs and begins a shift to early education.
+            </h6>
+          </TimelineElement>
+          <TimelineElement
+            icon={<BriefcaseBusiness color="#fff" />}
+            date="June 2025"
+            dateClassName="text-hcontrast md:text-dtext center"
+          >
+            <h2 className="text-hcontrast">Syntria Begins</h2>
+            <h3 className="vertical-timeline-element-subtitle">Picks Up Skylar's Run</h3>
+            <br />
+            <h6>
+              Skylar's Run assembles team and registers as an organization that brings
+              distribution to medical innovation.
+            </h6>
+          </TimelineElement>
+          <TimelineElement
+            icon={<Calendar color="#fff" />}
+            date="Today"
+            dateClassName="text-hcontrast md:text-dtext center"
+          >
+            <h2 className="text-hcontrast">Today</h2>
+            <h3 className="vertical-timeline-element-subtitle">Continuing Medical Advancements</h3>
+            <br />
+            <h6>
+              In order to bring the economic incentive needed to sustain medical
+              technologies, Syntria has focused on licensing out innovation from Thynk.
             </h6>
           </TimelineElement>
         </VerticalTimeline>

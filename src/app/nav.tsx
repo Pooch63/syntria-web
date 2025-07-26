@@ -34,7 +34,7 @@ export default function Nav() {
       <div className="w-full px-4 pt-6 z-50 flex justify-center bg-light-bg">
         <nav
           className={clsx(
-            "w-full max-w-5xl px-6 py-4 flex items-center justify-between rounded-2xl shadow-xl transition-all duration-300 bg-gradient-to-br from-ltrans to-rtrans",
+            "w-full max-w-[80%] px-6 py-4 flex items-center justify-between rounded-2xl shadow-xl transition-all duration-300 bg-gradient-to-br from-ltrans to-rtrans",
             !heros.includes(currentPath) && !menuOpen ? "shadow-md" : ""
           )}
         >

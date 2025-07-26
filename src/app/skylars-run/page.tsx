@@ -191,6 +191,52 @@ export default function TheProof() {
         </section>
       ))}
 
+    {/* Who It's For Section */}
+    <section className="max-w-6xl mx-auto px-4 pt-24 pb-20 text-center">
+      <Header text="Who It's For" />
+      <p className="text-xl max-w-3xl mx-auto opacity-90 text-ltext mb-12">
+        Skylar’s Run is designed to help people who struggle with focus—but also those who want to proactively build it.
+        Whether you’re a parent, educator, or clinician, here’s how this tool fits your needs.
+      </p>
+      
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-left">
+          {[
+            {
+              title: "Kids with ADHD",
+              description: "Skylar’s Run provides an interactive alternative to medication—giving kids real-time feedback that builds executive function through play."
+            },
+            {
+              title: "Parents Seeking Help",
+              description: "You’ve tried screen time limits, focus tools, even rewards. Skylar gives you something different: a way to turn screen time into growth time."
+            },
+            {
+              title: "Educators & Schools",
+              description: "Incorporate Skylar’s Run into cognitive training programs or special education support to drive measurable attention improvements at scale."
+            },
+            {
+              title: "Clinicians",
+              description: "Skylar’s Run works alongside therapy or on its own, giving mental health professionals a tool that’s engaging, evidence-based, and easy to recommend."
+            },
+            {
+              title: "Neurotypical Kids",
+              description: "Even kids without attention diagnoses benefit from stronger executive function—leading to better learning, better behavior, and better confidence."
+            },
+            {
+              title: "Teens & Tweens",
+              description: "Older players build metacognition, impulse control, and sustained focus—without needing constant adult supervision or boring exercises."
+            }
+          ].map((group, idx) => (
+            <SlideUpOnScroll key={"user-group-" + idx}>
+              <div className="h-full bg-light-bg border-2 border-ltrans rounded-2xl shadow-xl p-6">
+                <h3 className="text-xl font-semibold text-dark-bg mb-3">{group.title}</h3>
+                <p className="text-md text-ltext opacity-90">{group.description}</p>
+              </div>
+            </SlideUpOnScroll>
+          ))}
+        </div>
+      </section>
+
+
       {/* Existing Proof Content */}
       <section className="max-w-4xl mx-auto pt-10 pb-12 px-4 text-center">
         <Header text="The Proof" />
@@ -278,7 +324,7 @@ export default function TheProof() {
             </button>
             <div
               ref={scrollRef}
-              className="flex overflow-x-auto md:overflow-x-hidden gap-8 scrollbar-hide py-2 px-1 scroll-smooth snap-x snap-mandatory"
+              className="flex overflow-x-scroll md:overflow-x-hidden gap-8 scrollbar-hide py-2 px-1 scroll-smooth snap-x snap-mandatory"
               style={{ scrollBehavior: "smooth" }}
             >
               {testimonials.map((t, idx) => (
