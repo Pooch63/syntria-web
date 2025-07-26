@@ -117,7 +117,7 @@ export default function AboutUs() {
             <br />
             <h6>
               8 independent studies and 6 additional publications are produced, all of which
-              find that Skylar's Run improves cognition.
+              find that Skyla&apos;s Run improves cognition.
             </h6>
           </TimelineElement>
           <TimelineElement
@@ -129,7 +129,7 @@ export default function AboutUs() {
             <h3 className="vertical-timeline-element-subtitle">Newton, MA</h3>
             <br />
             <h6>
-              Thynk begins, taking over Skylar's Run and fueling more R&D to improve the product.
+              Thynk begins, taking over Skylar&apos;s Run and fueling more R&D to improve the product.
             </h6>
           </TimelineElement>
           <TimelineElement
@@ -137,7 +137,7 @@ export default function AboutUs() {
             date="2024-2025"
             dateClassName="text-hcontrast md:text-dtext center"
           >
-            <h2 className="text-hcontrast">Skylar's Run Kicks Off</h2>
+            <h2 className="text-hcontrast">Skylar&apos;s Run Kicks Off</h2>
             <h3 className="vertical-timeline-element-subtitle">Distribution Begins</h3>
             <br />
             <h6>
@@ -150,10 +150,10 @@ export default function AboutUs() {
             dateClassName="text-hcontrast md:text-dtext center"
           >
             <h2 className="text-hcontrast">Syntria Begins</h2>
-            <h3 className="vertical-timeline-element-subtitle">Picks Up Skylar's Run</h3>
+            <h3 className="vertical-timeline-element-subtitle">Picks Up Skylar&apos;s Run</h3>
             <br />
             <h6>
-              Skylar's Run assembles team and registers as an organization that brings
+              Skylar&apos;s Run assembles team and registers as an organization that brings
               distribution to medical innovation.
             </h6>
           </TimelineElement>
