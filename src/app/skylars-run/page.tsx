@@ -113,10 +113,7 @@ export default function TheProof() {
 
   return (
     <main className="min-h-screen bg-light-bg text-dark-bg font-sans">
-      <Head>
-        <title>Skylar&apos;s Run</title>
-      </Head>
-      
+      <title>Skylar&apos;s Run</title>
       {/* Hero Banner Section */}
       <section className="w-full text-light-bg pt-23 pb-20 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">

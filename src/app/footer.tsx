@@ -6,12 +6,12 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="font-bold text-2xl text-ltrans">Syntria</div>
         <nav className="flex gap-6 text-base">
-          <a href="/about" className="hover:text-rtrans transition">About</a>
+          <a href="/about" className="hover:text-rtrans transition">About Us</a>
           <a href="/try-it-now" className="hover:text-rtrans transition">Try It Now</a>
-          <a href="/why-it-works" className="hover:text-rtrans transition">Why It Works</a>
+          <a href="/skylars-run" className="hover:text-rtrans transition">Skylar's Run</a>
         </nav>
         <div className="text-sm text-ltrans">&copy; {new Date().getFullYear()} Syntria. All rights reserved.</div>
       </div>
     </footer>
   );
-} 
+}

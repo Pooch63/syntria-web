@@ -5,6 +5,7 @@ import SlideUpOnScroll from "../effects/slide-up-on-scroll";
 export default function TryItNow() {
   return (
     <main className="min-h-screen bg-light-bg text-dark-bg font-sans pb-20">
+      <title>Try It Now</title>
       <section className="flex flex-col items-center justify-center pt-32 pb-5 px-4 text-center mb-16 rounded-b-3xl w-full text-light-bg">
         <SlideUpOnScroll>
           <h1 className="text-5xl md:text-6xl font-extrabold mb-6 text-dark-bg drop-shadow-lg">Try Syntria Now</h1>

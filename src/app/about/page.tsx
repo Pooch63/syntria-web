@@ -53,6 +53,7 @@ const team = [
 export default function AboutUs() {
   return (
     <main className="min-h-screen bg-light-bg text-dark-bg font-sans pb-20">
+      <title>About Us</title>
       <section className="max-w-4xl mx-auto pt-32 pb-12 px-4 text-center">
         <Header text="About" />
         <p className="text-xl max-w-2xl mx-auto mb-8 opacity-90 text-dark-bg">

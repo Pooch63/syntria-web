@@ -37,6 +37,7 @@ const sections = [
 export default function Landing() {
   return (
     <main className="min-h-screen bg-light-bg font-sans">
+      <title>Syntria</title>
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center py-24 px-4 text-center">
         <h1 className="montserrat text-3xl md:text-5xl mb-6 drop-shadow-lg text-gray-500 text-balance">Shaping the Future of Improving Cognitive Skills
