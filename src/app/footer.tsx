@@ -8,7 +8,7 @@ export default function Footer() {
         <nav className="flex gap-6 text-base">
           <a href="/about" className="hover:text-rtrans transition">About Us</a>
           <a href="/try-it-now" className="hover:text-rtrans transition">Try It Now</a>
-          <a href="/skylars-run" className="hover:text-rtrans transition">Skylar's Run</a>
+          <a href="/skylars-run" className="hover:text-rtrans transition">Skylar&apos;s Run</a>
         </nav>
         <div className="text-sm text-ltrans">&copy; {new Date().getFullYear()} Syntria. All rights reserved.</div>
       </div>
