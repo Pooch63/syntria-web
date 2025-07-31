@@ -3,15 +3,15 @@
 
 import { distance } from "fastest-levenshtein";
 
-const routes = [
-    '/about',
-    '/skylars-run',
-    '/try-it-now'
-];
+const routes = ["/about", "/skylars-run", "/try-it-now"];
 
-export default function recommendReroute({ currentPathname }: { currentPathname: string }) {
-    for (const route of routes) {
-        if (distance(route, currentPathname) <= 4) return route;
-    }
-    return null;
+export default function recommendReroute({
+  currentPathname,
+}: {
+  currentPathname: string;
+}) {
+  for (const route of routes) {
+    if (distance(route, currentPathname) <= 4) return route;
+  }
+  return null;
 }

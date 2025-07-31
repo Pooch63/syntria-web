@@ -1,13 +1,16 @@
 "use client";
-import React, { useEffect, useRef, useState, ReactNode } from 'react';
-import './slide-up-on-scroll.css';
+import React, { useEffect, useRef, useState, ReactNode } from "react";
+import "./slide-up-on-scroll.css";
 
 interface SlideUpOnScrollProps {
   children: ReactNode;
   className?: string;
 }
 
-const SlideUpOnScroll: React.FC<SlideUpOnScrollProps> = ({ children, className = '' }) => {
+const SlideUpOnScroll: React.FC<SlideUpOnScrollProps> = ({
+  children,
+  className = "",
+}) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [contentVisible, setContentVisible] = useState(false);
 
@@ -26,7 +29,7 @@ const SlideUpOnScroll: React.FC<SlideUpOnScrollProps> = ({ children, className =
   return (
     <div
       ref={ref}
-      className={`slide-up-on-scroll ${contentVisible ? 'visible' : ''} ${className}`}
+      className={`slide-up-on-scroll ${contentVisible ? "visible" : ""} ${className}`}
     >
       {children}
     </div>

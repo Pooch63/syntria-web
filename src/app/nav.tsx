@@ -9,7 +9,7 @@ const navItems = [
   { name: "Try It Now", href: "/try-it-now" },
   { name: "About Us", href: "/about" },
 ];
-const heros = ['/', '/try-it-now'];
+const heros = ["/", "/try-it-now"];
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,14 +18,14 @@ export default function Nav() {
   // Prevent body scroll when menu is open
   useEffect(() => {
     if (menuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
-    
+
     // Cleanup on unmount
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [menuOpen]);
 
@@ -35,11 +35,16 @@ export default function Nav() {
         <nav
           className={clsx(
             "w-full max-w-[80%] px-6 py-4 flex items-center justify-between rounded-2xl shadow-xl transition-all duration-300 bg-gradient-to-br from-ltrans to-rtrans",
-            !heros.includes(currentPath) && !menuOpen ? "shadow-md" : ""
+            !heros.includes(currentPath) && !menuOpen ? "shadow-md" : "",
           )}
         >
           <div className="flex items-center space-x-3">
-            <a className="text-2xl font-extrabold text-white tracking-wide drop-shadow" href="/">Syntria</a>
+            <a
+              className="text-2xl font-extrabold text-white tracking-wide drop-shadow"
+              href="/"
+            >
+              Syntria
+            </a>
           </div>
 
           {/* Desktop Nav */}
@@ -67,19 +72,19 @@ export default function Nav() {
               <span
                 className={clsx(
                   "block h-1 w-full bg-white rounded transition-all duration-300 ease-in-out origin-left",
-                  menuOpen ? "rotate-45" : ""
+                  menuOpen ? "rotate-45" : "",
                 )}
               ></span>
               <span
                 className={clsx(
                   "block h-1 w-full bg-white rounded transition-all duration-300 ease-in-out",
-                  menuOpen ? "opacity-0" : ""
+                  menuOpen ? "opacity-0" : "",
                 )}
               ></span>
               <span
                 className={clsx(
                   "block h-1 w-full bg-white rounded transition-all duration-300 ease-in-out origin-left",
-                  menuOpen ? "-rotate-45" : ""
+                  menuOpen ? "-rotate-45" : "",
                 )}
               ></span>
             </div>
@@ -91,14 +96,14 @@ export default function Nav() {
       <div
         className={clsx(
           "md:hidden fixed inset-0 z-40 transition-all duration-500 ease-out",
-          menuOpen 
-            ? "transform translate-y-0 opacity-100 pointer-events-auto" 
-            : "transform -translate-y-full opacity-0 pointer-events-none"
+          menuOpen
+            ? "transform translate-y-0 opacity-100 pointer-events-auto"
+            : "transform -translate-y-full opacity-0 pointer-events-none",
         )}
       >
         {/* Background overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-light-bg to-dark-bg"></div>
-        
+
         {/* Content container */}
         <div className="relative h-full flex flex-col">
           {/* Close button at top */}
@@ -108,17 +113,17 @@ export default function Nav() {
               className="text-white hover:text-gray-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white rounded-lg p-2"
               aria-label="Close menu"
             >
-              <svg 
-                className="w-8 h-8" 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M6 18L18 6M6 6l12 12" 
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
                 />
               </svg>
             </button>
@@ -126,28 +131,30 @@ export default function Nav() {
 
           {/* Navigation items */}
           <div className="flex-1 flex items-center justify-center">
-            <ul 
+            <ul
               className={clsx(
                 "flex flex-col items-center space-y-8 transition-all duration-700 ease-out",
-                menuOpen 
-                  ? "transform translate-y-0 opacity-100" 
-                  : "transform translate-y-8 opacity-0"
+                menuOpen
+                  ? "transform translate-y-0 opacity-100"
+                  : "transform translate-y-8 opacity-0",
               )}
-              style={{ 
-                transitionDelay: menuOpen ? '200ms' : '0ms' 
+              style={{
+                transitionDelay: menuOpen ? "200ms" : "0ms",
               }}
             >
               {navItems.map((item, index) => (
-                <li 
+                <li
                   key={item.name}
                   className={clsx(
                     "transition-all duration-500 ease-out",
-                    menuOpen 
-                      ? "transform translate-y-0 opacity-100" 
-                      : "transform translate-y-4 opacity-0"
+                    menuOpen
+                      ? "transform translate-y-0 opacity-100"
+                      : "transform translate-y-4 opacity-0",
                   )}
                   style={{
-                    transitionDelay: menuOpen ? `${300 + (index * 100)}ms` : '0ms'
+                    transitionDelay: menuOpen
+                      ? `${300 + index * 100}ms`
+                      : "0ms",
                   }}
                 >
                   <a

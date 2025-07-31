@@ -30,8 +30,8 @@ const sections = [
     text: "Our team brings a unique blend of digital mental health, behavior science, and early-stage growth strategy.",
     image: "/images/jennifer.png",
     gradient: "from-lime-400 via-green-400 to-emerald-500",
-    reverse: true
-  }
+    reverse: true,
+  },
 ];
 
 export default function Landing() {
@@ -40,22 +40,26 @@ export default function Landing() {
       <title>Syntria</title>
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center py-24 px-4 text-center">
-        <h1 className="montserrat text-3xl md:text-6xl mb-6 drop-shadow-lg text-gray-500 text-balance">The Home for Evidence-Based Cognitive Tools
+        <h1 className="montserrat text-3xl md:text-6xl mb-6 drop-shadow-lg text-gray-500 text-balance">
+          The Home for Evidence-Based Cognitive Tools
         </h1>
         <div className="w-[100%] hidden md:block">
-          <TextCarousel messages={[
-            "Cutting-Edge AI Solutions",
-            "Mental Health Treatments that Stick",
-            "Cognition like Never Before",
-            "Syntria"
-          ]}/>
+          <TextCarousel
+            messages={[
+              "Cutting-Edge AI Solutions",
+              "Mental Health Treatments that Stick",
+              "Cognition like Never Before",
+              "Syntria",
+            ]}
+          />
         </div>
         <div className="w-[100%] block md:hidden">
           <p className="text-center text-3xl text-gray-800">Syntria</p>
         </div>
         <h4 className="w-[90%] md:w-[40%] text-lg text-gray-500">
-          Syntria is a startup turning mental health innovations into accessible experiences.
-          Our first product, Skylar’s Run, is a video game powered by EEG technology where players advance by focusing—no hands required.
+          Syntria is a startup turning mental health innovations into accessible
+          experiences. Our first product, Skylar’s Run, is a video game powered
+          by EEG technology where players advance by focusing—no hands required.
         </h4>
         <a
           href="/skylars-run"
@@ -80,9 +84,12 @@ export default function Landing() {
 
       {/* Skylar's Run CTA Section */}
       <section className="bg-gradient-to-br py-20 px-6 text-center text-gray-800">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-dark-bg drop-shadow-md">Discover Skylar&apos;s Run</h2>
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-dark-bg drop-shadow-md">
+          Discover Skylar&apos;s Run
+        </h2>
         <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 opacity-90">
-          Our first product combines engaging experiences with clinically backed strategies to boost cognitive function.
+          Our first product combines engaging experiences with clinically backed
+          strategies to boost cognitive function.
         </p>
         <a
           href="/skylars-run"
@@ -93,4 +100,4 @@ export default function Landing() {
       </section>
     </main>
   );
-} 
+}
