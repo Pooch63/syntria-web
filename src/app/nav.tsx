@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 
@@ -39,24 +40,24 @@ export default function Nav() {
           )}
         >
           <div className="flex items-center space-x-3">
-            <a
+            <Link
               className="text-2xl font-extrabold text-white tracking-wide drop-shadow"
               href="/"
             >
               Syntria
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Nav */}
           <ul className="hidden md:flex space-x-8">
             {navItems.map((item) => (
               <li key={item.name}>
-                <a
+                <Link
                   href={item.href}
                   className="text-white text-ltext font-semibold hover:text-dtext transition-colors duration-200 px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
                 >
                   {item.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

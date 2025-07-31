@@ -1,6 +1,5 @@
 "use client";
 import React, { useRef } from "react";
-import Head from "next/head";
 import { Header } from "../effects/texts";
 import SlideUpOnScroll from "../effects/slide-up-on-scroll";
 import Card from "../effects/card";
