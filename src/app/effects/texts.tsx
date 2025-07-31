@@ -26,7 +26,7 @@ export function TextCarousel({
 
 
   return (
-    <div className="w-[100%] overflow-x-hidden relative h-12 text-center text-3xl text-gray-800">
+    <div className="w-[100%] overflow-x-hidden relative h-12 text-center text-xl md:text-4xl text-gray-800">
       <AnimatePresence>
         <motion.div
           key={messages[index]}

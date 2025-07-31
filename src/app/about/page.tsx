@@ -56,7 +56,7 @@ export default function AboutUs() {
       <title>About Us</title>
       <section className="max-w-4xl mx-auto pt-32 pb-12 px-4 text-center">
         <Header text="About" />
-        <p className="text-xl max-w-2xl mx-auto mb-8 opacity-90 text-dark-bg">
+        <p className="text-xl max-w-2xl mx-auto mb-8 opacity-90 text-dtext">
           Syntria is on a mission to revolutionize cognitive health for youth across the US. By combining cutting-edge EEG technology with the power of video games, we create experiences that are both fun and scientifically proven to boost attention, memory, and focus. Our team is passionate about making a real impact—one game at a time.
         </p>
       </section>
@@ -154,8 +154,8 @@ export default function AboutUs() {
             <h3 className="vertical-timeline-element-subtitle">Picks Up Skylar&apos;s Run</h3>
             <br />
             <h6>
-              Skylar&apos;s Run assembles team and registers as an organization that brings
-              distribution to medical innovation.
+              Skylar&apos;s Run assembles team and registers Syntria as an organization that brings
+              distribution to healthcare innovation.
             </h6>
           </TimelineElement>
           <TimelineElement
@@ -164,11 +164,11 @@ export default function AboutUs() {
             dateClassName="text-hcontrast md:text-dtext center"
           >
             <h2 className="text-hcontrast">Today</h2>
-            <h3 className="vertical-timeline-element-subtitle">Continuing Medical Advancements</h3>
+            <h3 className="vertical-timeline-element-subtitle">Continuing Cognitive Advancements</h3>
             <br />
             <h6>
-              In order to bring the economic incentive needed to sustain medical
-              technologies, Syntria has focused on licensing out innovation from Thynk.
+              In order to bring economic incentive to new products,
+              Syntria has focused on licensing out innovation from Thynk.
             </h6>
           </TimelineElement>
         </VerticalTimeline>

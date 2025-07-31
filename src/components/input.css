@@ -1,0 +1,31 @@
+  .input-field {
+    padding: 0.6em 0.9em;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+  }
+
+  .input-field:focus,
+  .input-field:focus-visible,
+  .input-field:focus-within {
+    outline: 1px solid var(--input-highlight-color);
+  }
+
+  .placeholder {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease, font-size 0.3s ease;
+    transform-origin: top left;
+    pointer-events: none;
+    display: block;
+    visibility: hidden;
+    padding: 0px 3px;
+  }
+
+  .input-field:focus + .placeholder,
+  .input-field:not(:placeholder-shown) + .placeholder {
+    visibility: visible;
+    transform: translateY(-100%) scale(0.9);
+    font-size: 1rem;
+  }

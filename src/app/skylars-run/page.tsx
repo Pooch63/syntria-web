@@ -32,41 +32,23 @@ const showcaseSections = [
 ];
 const testimonials = [
   {
-    image: "/images/worker.jpg",
-    text: "Syntria has made a noticeable difference in my students' focus and engagement. The games are fun and the results are real!",
-    name: "Alex Martinez",
-    role: "Middle School Teacher",
+    image: "/images/jessica.png",
+    text: "Skylar’s Run has been a game-changer for our family. Seeing our child excel in school and gain confidence in their abilities is truly a priceless feeling. Thank you for giving us a tool that has made such a positive impact on our lives!",
+    name: "Jessica",
+    role: "Mom",
   },
   {
-    image: "/images/kiyaan.jpg",
-    text: "As a parent, I love seeing my child excited to play something that’s actually good for their brain. Highly recommend Syntria!",
-    name: "Jamie Lee",
-    role: "Parent",
+    image: "/images/lisa.png",
+    text: "Skylar's Run has been a game-changer for our child, Joseph. This program's engaging gameplay led to better focus and task management, school performance, homework completion and self-regulation skills.",
+    name: "Lisa",
+    role: "Educator"
   },
   {
-    image: "/images/jennifer.png",
-    text: "The science behind Syntria is impressive, and the clinical results speak for themselves. This is the future of cognitive health.",
-    name: "Dr. Priya Singh",
-    role: "Neuroscientist",
-  },
-  {
-    image: "/images/brain.png",
-    text: "I’ve seen a real improvement in my child’s attention span since using Syntria. The games are engaging and educational.",
-    name: "Morgan Taylor",
-    role: "Parent",
-  },
-  {
-    image: "/images/playing.png",
-    text: "Our school program saw a boost in student participation thanks to Syntria’s fun approach to cognitive training.",
-    name: "Chris Evans",
-    role: "School Program Director",
-  },
-  {
-    image: "/images/worker.jpg",
-    text: "As a clinician, I appreciate the evidence-based design behind Syntria. It’s a valuable tool for youth cognitive health.",
-    name: "Dr. Emily Chen",
-    role: "Child Psychologist",
-  },
+    image: "/images/gabriella.png",
+    text: "Thanks to Skylar's Run our child is now able to focus better, stay on task, and achieve academic success. As parents, we couldn't be more proud of their progress and we're grateful for creating such an innovative and effective solution.",
+    name: "Gabriella",
+    role: "School Superintendent"
+  }
 ];
 const graphs = [
   {
@@ -93,7 +75,62 @@ const graphs = [
         ADHD medications and treatments on the market.</>,
     reverse: false
   }
-]
+];
+const whoItsFor = [
+  {
+    title: "The Elderly",
+    description: "An increase in cognition can lead to longer lifespans, delay cognitive decline, and improve executive function and daily living.",
+    anchor: "elderly"
+  },
+  {
+    title: "Mental Health Patients",
+    description: "Skylar's Run has been shown over and over to improve mental health symptoms, particularly those associated with depression and anxiety.",
+    anchor: "mental-health"
+  },
+  {
+    title: "Athletes",
+    description: "Being at the top of your game doesn't just mean having the physique. Athletes need to constantly sharpen mental acuity and improve metrics like decision making, inhibition, focus and control.",
+    anchor: "athletes"
+  },
+  {
+    title: "Pediatric Practices",
+    description: "Whether you're a microschool looking to improve your kids' quality of life or a pediatrician worried about their patients' cognition, Skylar's Run provides the perfect opportunity to improve academics and cognition.",
+    anchor: "pediatrics"
+  }
+];
+const results = [
+  {
+    title: "Schools",
+    description: "Kids aren't behind anymore. On average, they get boosted a full grade level in reading and math.",
+  },
+  {
+    title: "Behavior",
+    description: "Participants see an average improvement of 75% in attention and behavior.",
+  },
+  {
+    title: "Mental Health",
+    description: "44% of players with depression and 22% of anxiety-ridden players see a decrease in symptoms.",
+  },
+  {
+    title: "Work Life",
+    description:
+      "Yes, Skylar's Run is for adults, too, and 78% of those who pick it up experience an increase in work productivity.",
+  },
+];
+
+function ResultCard({ number, title, description }: { number: number; title: string; description: string }) {
+  return (
+    <SlideUpOnScroll className="h-full">
+      <div className="flex flex-col items-center h-full bg-light-bg rounded-2xl shadow p-6 border-2 border-dark-bg">
+        <div className="w-16 h-16 flex items-center justify-center rounded-full bg-dark-bg shadow mb-4">
+          <span className="text-3xl font-extrabold text-light-bg drop-shadow">{number}</span>
+        </div>
+        <h3 className="text-lg font-bold text-dtext mb-2">{title}</h3>
+        <p className="text-sm text-dtext opacity-80 text-center">{description}</p>
+      </div>
+    </SlideUpOnScroll>
+  );
+}
 
 export default function TheProof() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -196,42 +233,28 @@ export default function TheProof() {
         Whether you’re a parent, educator, or clinician, here’s how this tool fits your needs.
       </p>
       
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-left">
-          {[
-            {
-              title: "Kids with ADHD",
-              description: "Skylar’s Run provides an interactive alternative to medication—giving kids real-time feedback that builds executive function through play."
-            },
-            {
-              title: "Parents Seeking Help",
-              description: "You’ve tried screen time limits, focus tools, even rewards. Skylar gives you something different: a way to turn screen time into growth time."
-            },
-            {
-              title: "Educators & Schools",
-              description: "Incorporate Skylar’s Run into cognitive training programs or special education support to drive measurable attention improvements at scale."
-            },
-            {
-              title: "Clinicians",
-              description: "Skylar’s Run works alongside therapy or on its own, giving mental health professionals a tool that’s engaging, evidence-based, and easy to recommend."
-            },
-            {
-              title: "Neurotypical Kids",
-              description: "Even kids without attention diagnoses benefit from stronger executive function—leading to better learning, better behavior, and better confidence."
-            },
-            {
-              title: "Teens & Tweens",
-              description: "Older players build metacognition, impulse control, and sustained focus—without needing constant adult supervision or boring exercises."
-            }
-          ].map((group, idx) => (
-            <SlideUpOnScroll key={"user-group-" + idx}>
-              <div className="h-full bg-light-bg border-2 border-ltrans rounded-2xl shadow-xl p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-left">
+        {whoItsFor.map((group, idx) => (
+          <SlideUpOnScroll key={"user-group-" + idx}>
+            <div className="h-full bg-light-bg border-2 border-ltrans rounded-2xl shadow-xl p-6 flex flex-col justify-between">
+              <div>
                 <h3 className="text-xl font-semibold text-dark-bg mb-3">{group.title}</h3>
                 <p className="text-md text-ltext opacity-90">{group.description}</p>
               </div>
-            </SlideUpOnScroll>
-          ))}
-        </div>
-      </section>
+              <div className="mt-6">
+                <a
+                  href={`/skylars-run/audience#${group.anchor}`}
+                  className="inline-block text-ltrans font-semibold hover:underline transition-all"
+                >
+                  Learn More <span className="font-black">&#x2192;</span>
+                </a>
+              </div>
+            </div>
+          </SlideUpOnScroll>
+        ))}
+      </div>
+
+    </section>
 
 
       {/* Existing Proof Content */}
@@ -250,45 +273,16 @@ export default function TheProof() {
 
       {/* Clinical Trials Section */}
       <section className="max-w-5xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-dark-bg mb-8 text-center">8 Clinical Trials. Real Results.</h2>
+        <h2 className="text-3xl font-bold text-dark-bg mb-8 text-center">15 studies. Real Results.</h2>
         <p className="text-lg text-center mb-10 text-dark-bg opacity-90">Skylar&apos;s Run is backed by rigorous science. Our clients see improvements in:</p>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <SlideUpOnScroll className="h-full">
-            <div className="flex flex-col items-center h-full bg-light-bg rounded-2xl shadow p-6 border-2 border-dark-bg">
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-dark-bg shadow mb-4">
-                <span className="text-3xl font-extrabold text-light-bg drop-shadow">1</span>
-              </div>
-              <h3 className="text-lg font-bold text-dtext mb-2">Mathematics</h3>
-              <p className="text-sm text-dtext opacity-80 text-center">Kids aren&apos;t behind anymore. They improve by 8.3 months on average.</p>
-            </div>
-          </SlideUpOnScroll>
-          <SlideUpOnScroll className="h-full">
-            <div className="flex flex-col items-center h-full bg-light-bg rounded-2xl shadow p-6 border-2 border-dark-bg">
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-dark-bg shadow mb-4">
-                <span className="text-3xl font-extrabold text-light-bg drop-shadow">2</span>
-              </div>
-              <h3 className="text-lg font-bold text-dtext mb-2">Homework</h3>
-              <p className="text-sm text-dtext opacity-80 text-center">Expect a 36% increase in your child&apos;s homework completion.</p>
-            </div>
-          </SlideUpOnScroll>
-          <SlideUpOnScroll className="h-full">
-            <div className="flex flex-col items-center h-full bg-light-bg rounded-2xl shadow p-6 border-2 border-dark-bg">
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-dark-bg shadow mb-4">
-                <span className="text-3xl font-extrabold text-light-bg drop-shadow">3</span>
-              </div>
-              <h3 className="text-lg font-bold text-dtext mb-2">Testing</h3>
-              <p className="text-sm text-dtext opacity-80 text-center">Your child can now prove how smart they are, with 30-40% test score improvements.</p>
-            </div>
-          </SlideUpOnScroll>
-          <SlideUpOnScroll className="h-full">
-            <div className="flex flex-col items-center h-full bg-light-bg rounded-2xl shadow p-6 border-2 border-dark-bg">
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-dark-bg shadow mb-4">
-                <span className="text-3xl font-extrabold text-light-bg drop-shadow">4</span>
-              </div>
-              <h3 className="text-lg font-bold text-dtext mb-2">Reading</h3>
-              <p className="text-sm text-dtext opacity-80 text-center">Kids&apos; worth isn&apos;t measured by their reading level. But if it were, they&apos;d be 6.6 months richer after playing.</p>
-            </div>
-          </SlideUpOnScroll>
+          {results.map((result, idx) => (
+            <ResultCard
+              key={idx}
+              description={result.description}
+              number={idx + 1}
+              title={result.title} />
+          ))}
         </div>
       </section>
 
@@ -347,7 +341,7 @@ export default function TheProof() {
       {/* CTA Button Section */}
       <section className="py-16 bg-transparent text-center">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-dark-bg mb-6">Ready to Transform Attention?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-dark-bg mb-6">Ready to Improve Your Mind?</h2>
           <p className="text-lg md:text-xl text-dark-bg opacity-90 mb-8">
             Give Skylar&apos;s Run a try today and see the results for yourself.
           </p>

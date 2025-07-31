@@ -39,7 +39,7 @@ export default function Nav() {
           )}
         >
           <div className="flex items-center space-x-3">
-            <span className="text-2xl font-extrabold text-white tracking-wide drop-shadow">Syntria</span>
+            <a className="text-2xl font-extrabold text-white tracking-wide drop-shadow" href="/">Syntria</a>
           </div>
 
           {/* Desktop Nav */}

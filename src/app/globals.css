@@ -21,7 +21,7 @@
   --foreground: #171717;
 }
 
-@theme {
+@theme inline {
   --color-ltrans: #C0C9EE;
   --color-rtrans: #A2AADB;
   /* --color-light-bg: #FFF2E0; */

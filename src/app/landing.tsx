@@ -40,7 +40,7 @@ export default function Landing() {
       <title>Syntria</title>
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center py-24 px-4 text-center">
-        <h1 className="montserrat text-3xl md:text-5xl mb-6 drop-shadow-lg text-gray-500 text-balance">Shaping the Future of Improving Cognitive Skills
+        <h1 className="montserrat text-3xl md:text-6xl mb-6 drop-shadow-lg text-gray-500 text-balance">The Home for Evidence-Based Cognitive Tools
         </h1>
         <div className="w-[100%] hidden md:block">
           <TextCarousel messages={[
@@ -53,8 +53,12 @@ export default function Landing() {
         <div className="w-[100%] block md:hidden">
           <p className="text-center text-3xl text-gray-800">Syntria</p>
         </div>
+        <h4 className="w-[90%] md:w-[40%] text-lg text-gray-500">
+          Syntria is a startup turning mental health innovations into accessible experiences.
+          Our first product, Skylar’s Run, is a video game powered by EEG technology where players advance by focusing—no hands required.
+        </h4>
         <a
-          href="/try-it-now"
+          href="/skylars-run"
           className="mt-4 px-8 py-3 bg-dark-bg text-hcontrast rounded-full font-semibold shadow-lg hover:bg-dtext transition"
         >
           Learn More

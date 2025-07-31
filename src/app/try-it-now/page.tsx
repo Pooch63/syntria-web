@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../effects/card";
 import SlideUpOnScroll from "../effects/slide-up-on-scroll";
+import ContactForm from "@/components/ContactForm";
 
 export default function TryItNow() {
   return (
@@ -22,7 +23,7 @@ export default function TryItNow() {
       </section>
 
       <section className="max-w-4xl mx-auto px-4 pb-12 grid md:grid-cols-2 gap-12 items-stretch">
-        <Card className="h-full" header="Easy to Begin" content="We'd be more than happy to customize our products to fit you or your organization's needs. Just let us know what you're looking for." />
+        <Card className="h-full" header="Easy to Begin" content="Start today and give your loved one a fun, simple way to strengthen their mind and brighten their future." />
         <Card className="h-full" header="No Risk, All Reward" content="Whether you're an individual or a 10,000 member organization, it's 60 days or your money back." />
       </section>
 
@@ -35,6 +36,8 @@ export default function TryItNow() {
           Contact Us
         </a>
       </section>
+
+      <ContactForm />
     </main>
   );
 }
