@@ -1,9 +1,9 @@
 "use client";
 import React, { useRef } from "react";
-import { Header } from "../effects/texts";
-import SlideUpOnScroll from "../effects/slide-up-on-scroll";
-import Card from "../effects/card";
-import TextImage from "../effects/text-image";
+import { Header } from "@/effects/texts";
+import SlideUpOnScroll from "@/effects/slide-up-on-scroll";
+import Card from "@/effects/card";
+import TextImage from "@/effects/text-image";
 
 // Product showcase sections for Skylar's Run
 const showcaseSections = [
@@ -294,7 +294,7 @@ export default function TheProof() {
       {/* Existing Proof Content */}
       <section className="max-w-4xl mx-auto pt-10 pb-12 px-4 text-center">
         <Header text="The Proof" />
-        <p className="text-xl max-w-2xl mx-auto mb-8 opacity-90 text-dark-bg">
+        <p className="text-xl max-w-2xl mx-auto mb-8 opacity-90 text-ltext">
           Syntria only uses technology backed by years and research and{" "}
           <b>results</b>. Skylar&apos;s Run is no exception.
         </p>

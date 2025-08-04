@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import { Header } from "../effects/texts";
+import { Header } from "@/effects/texts";
 import { VerticalTimeline } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { TimelineElement } from "../effects/timeline";
+import { TimelineElement } from "@/effects/timeline";
 import {
   Building2,
   Gamepad2,
@@ -11,7 +11,7 @@ import {
   BriefcaseBusiness,
   Calendar,
 } from "lucide-react";
-import SlideUpOnScroll from "../effects/slide-up-on-scroll";
+import SlideUpOnScroll from "@/effects/slide-up-on-scroll";
 
 const team = [
   {

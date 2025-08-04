@@ -55,7 +55,6 @@ export function Header({ text }: { text: string }) {
   );
 }
 
-
 export function UnderlineOnView(
   { text, className, underlineClassName, containerClassName = undefined }:
   {
@@ -65,7 +64,7 @@ export function UnderlineOnView(
     containerClassName?: string;
   }) {
   const controls = useAnimation();
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.5 });
+  const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.5 });
   const [underlineVisible, setUnderlineVisible] = useState(false);
 
   useEffect(() => {
@@ -84,9 +83,9 @@ export function UnderlineOnView(
           initial={{ width: 0, opacity: 1 }}
           animate={{ width: "100%" }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
           onAnimationComplete={() => {
-            setTimeout(() => setUnderlineVisible(false), 300);
+            setTimeout(() => setUnderlineVisible(false), 700);
           }}
         />
       )}

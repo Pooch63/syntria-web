@@ -21,7 +21,7 @@ router.post('/chat', async (request, env) => {
 
 	// For now, just return a dummy response
 	return new Response(JSON.stringify({
-			reply: 'Syntria\'s chatbot is still in development, but it\'s coming soon. Expect the chatbot to be finished by the end of the month!'
+			reply: 'Syntria\'s chatbot is still in development, so I unfortunately can\'t answer that right now. You can expect the chatbot to be finished by the end of the month!'
 		}), {
 			headers: {
 				'Content-Type': 'application/json',

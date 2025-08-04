@@ -1,4 +1,5 @@
 "use client";
+import { getRandomElement } from '@/scripts/utils';
 import React, { useState, useRef, useEffect } from 'react';
 
 interface Message {
@@ -209,7 +210,11 @@ const ChatbotUI: React.FC<ChatbotUIProps> = ({ className = '' }) => {
                 value={inputValue}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Ask about Skylar's Run..."
+                placeholder={getRandomElement([
+                  "Ask about Syntria's mission...",
+                  "Learn about Skylar's Run...",
+                  "Get started today..."
+                ])}
                 className="flex-1 px-3 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent text-sm"
                 disabled={isTyping}
               />

@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import TextImage from "./effects/text-image";
-import { TextCarousel, UnderlineOnView } from "./effects/texts";
-import SlideUpOnScroll from "./effects/slide-up-on-scroll";
+import TextImage from "@/effects/text-image";
+import { TextCarousel, UnderlineOnView } from "@/effects/texts";
+import SlideUpOnScroll from "@/effects/slide-up-on-scroll";
 
 import { Brain, BookOpenText, BarChart4, Stethoscope } from "lucide-react";
 import EEGWaveform from "@/components/eeg";

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import SlideUpOnScroll from "../../effects/slide-up-on-scroll";
-import { Header } from "../../effects/texts";
+import SlideUpOnScroll from "@/effects/slide-up-on-scroll";
+import { Header } from "@/effects/texts";
 
 type GraphProps = { title: string; headers: [string, string, string]; data: { title: string; description: string; }[][] };
 
