@@ -1,13 +1,17 @@
+import React from "react";
+
 export default function TextImage({
   title,
   reverse,
   text,
   image,
+  element
 }: {
   title: string;
   reverse: boolean;
   text: string;
-  image: string;
+  image?: string;
+  element?: React.ReactNode;
 }) {
   return (
     <section
@@ -30,11 +34,12 @@ export default function TextImage({
       {/* Image Side */}
       <div className="flex-1 flex justify-center items-center min-h-[300px]">
         <div className="relative w-80 h-80 flex items-center justify-center">
-          <img
+          {image && <img
             src={image}
             alt={title}
             className="relative w-56 h-56 md:w-72 md:h-72 object-contain opacity-95 drop-shadow-xl z-10"
-          />
+          />}
+          {element}
         </div>
       </div>
     </section>

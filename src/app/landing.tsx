@@ -1,38 +1,70 @@
 "use client";
 import React from "react";
 import TextImage from "./effects/text-image";
-import { TextCarousel } from "./effects/texts";
+import { TextCarousel, UnderlineOnView } from "./effects/texts";
+import SlideUpOnScroll from "./effects/slide-up-on-scroll";
+
+import { Brain, BookOpenText, BarChart4, Stethoscope } from "lucide-react";
 
 const sections = [
   {
     title: "Clinician-Supported Design",
     text: "Personalized implementation and support ensures products are integrated effectively in care settings - ensuring seamless integration into workflow.",
-    image: "/images/brain.png",
+    element: <Brain className="w-[75%] h-[75%] text-purple-400" />,
     gradient: "from-ltrans to-dark-bg",
     reverse: false,
   },
   {
     title: "Rigorous Expert Review",
     text: "All products undergo multidisciplinary clinical, psychological, and technical review. We specialize in identifying and operationalizing clinically validated tools through evidence-based product deployment.",
-    image: "/images/expert-review.jpg",
+    element: <BookOpenText className="w-[75%] h-[75%] text-purple-400" />,
     gradient: "from-emerald-400 via-green-500 to-lime-400",
     reverse: true,
   },
   {
     title: "Profitable and Scalable Business Model",
     text: "Consistently profitable sales process creating a large user base with high impact.",
-    image: "/images/business-growth.jpg",
+    element: <BarChart4 className="w-[75%] h-[75%] text-purple-400" />,
     gradient: "from-lime-400 via-green-400 to-emerald-500",
     reverse: false,
   },
   {
     title: "Deep Digital Health & Engagement Expertise",
     text: "Our team brings a unique blend of digital mental health, behavior science, and early-stage growth strategy.",
-    image: "/images/jennifer.png",
+    element: <Stethoscope className="w-[75%] h-[75%] text-purple-400" />,
     gradient: "from-lime-400 via-green-400 to-emerald-500",
     reverse: true,
   },
 ];
+// Professional Feature Card Component
+const FeatureCard = (
+  { title, text, icon: Icon, index }: {
+    title: string;
+    text: string;
+    icon: React.ReactElement;
+    index: number;
+  }) => (
+  <SlideUpOnScroll className="transition-all duration-700 ease-out" style={{ transitionDelay: `${index * 150}ms` }}>
+    <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-blue-100 group hover:border-purple-200">
+      <div className="flex items-start gap-6">
+        <div className="flex-shrink-0">
+          <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <Icon className="w-8 h-8 text-purple-600" />
+          </div>
+        </div>
+        <div className="flex-1">
+          <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">
+            {title}
+          </h3>
+          <p className="text-gray-600 leading-relaxed">
+            {text}
+          </p>
+        </div>
+      </div>
+    </div>
+  </SlideUpOnScroll>
+);
+
 
 export default function Landing() {
   return (
@@ -78,15 +110,36 @@ export default function Landing() {
       {/* Info Sections */}
       <div className="space-y-10 py-20">
         {sections.map((section, idx) => (
-          <TextImage key={"Section " + idx} {...section} />
+          <SlideUpOnScroll key={"Section " + idx}>
+            <TextImage {...section} />
+          </SlideUpOnScroll>
         ))}
       </div>
 
+      <section className="relative py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <SlideUpOnScroll>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Why Choose Syntria
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Our comprehensive approach combines clinical expertise with cutting-edge technology
+              </p>
+            </div>
+          </SlideUpOnScroll>
+
+          {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {sections.map((section, index) => (
+              <FeatureCard key={index} {...section} index={index} />
+            ))}
+          </div> */}
+        </div>
+      </section>
+
       {/* Skylar's Run CTA Section */}
       <section className="bg-gradient-to-br py-20 px-6 text-center text-gray-800">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-dark-bg drop-shadow-md">
-          Discover Skylar&apos;s Run
-        </h2>
+        <UnderlineOnView containerClassName="mb-3" underlineClassName="bg-gradient-to-r from-dark-bg to-rtrans" className="text-4xl md:text-5xl font-bold mb-6 text-dark-bg drop-shadow-md" text="Discover Skylar's Run" />
         <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 opacity-90">
           Our first product combines engaging experiences with clinically backed
           strategies to boost cognitive function.

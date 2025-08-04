@@ -1,6 +1,8 @@
 "use client";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
+import clsx from "clsx";
 
 interface TextCarouselProps {
   messages: string[];
@@ -52,3 +54,42 @@ export function Header({ text }: { text: string }) {
     </h1>
   );
 }
+
+
+export function UnderlineOnView(
+  { text, className, underlineClassName, containerClassName = undefined }:
+  {
+    text: string;
+    className: string;
+    underlineClassName: string;
+    containerClassName?: string;
+  }) {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.5 });
+  const [underlineVisible, setUnderlineVisible] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      setUnderlineVisible(true);
+      controls.start("animate");
+    }
+  }, [inView, controls]);
+
+  return (
+    <div ref={ref} className={clsx("relative inline-block text-2xl font-semibold", containerClassName)}>
+      <span className={className}>{text}</span>
+      {underlineVisible && (
+        <motion.div
+          className={`absolute bottom-0 left-0 h-1 bg-blue-500 ${underlineClassName}`}
+          initial={{ width: 0, opacity: 1 }}
+          animate={{ width: "100%" }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          onAnimationComplete={() => {
+            setTimeout(() => setUnderlineVisible(false), 300);
+          }}
+        />
+      )}
+    </div>
+  );
+};
