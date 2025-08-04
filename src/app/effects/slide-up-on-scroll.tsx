@@ -5,11 +5,13 @@ import "./slide-up-on-scroll.css";
 interface SlideUpOnScrollProps {
   children: ReactNode;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 const SlideUpOnScroll: React.FC<SlideUpOnScrollProps> = ({
   children,
   className = "",
+  style
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [contentVisible, setContentVisible] = useState(false);
@@ -30,6 +32,7 @@ const SlideUpOnScroll: React.FC<SlideUpOnScrollProps> = ({
     <div
       ref={ref}
       className={`slide-up-on-scroll ${contentVisible ? "visible" : ""} ${className}`}
+      style={style}
     >
       {children}
     </div>
