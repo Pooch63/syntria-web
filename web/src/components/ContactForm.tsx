@@ -32,7 +32,7 @@ export default function ContactForm() {
       onSubmit={handleSubmit}
       className="bg-light-bg shadow-xl rounded-2xl p-8 max-w-2xl mx-auto space-y-6"
     >
-      <h2 className="text-3xl font-bold text-dark-bg text-center">Send Us a Message</h2>
+      <h2 className="text-3xl font-bold text-dark-bg text-center">Send Us an Inquiry</h2>
 
     <FloatingInput
         name="name"

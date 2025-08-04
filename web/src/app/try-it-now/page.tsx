@@ -46,14 +46,8 @@ export default function TryItNow() {
           Ready to experience the future?
         </h2>
         <p className="mb-6 text-lg opacity-90 text-dark-bg">
-          Prepare to enter a new era.
+          Prepare to enter a new era. Reach out today.
         </p>
-        <a
-          className="inline-block px-10 py-4 bg-gradient-to-r from-ltrans to-rtrans text-light-bg rounded-full font-semibold shadow-lg hover:bg-dark-bg hover:text-light-bg transition text-lg transition-transform duration-300 scale-100 hover:scale-[1.1]"
-          href="mailto:hello@syntria.org"
-        >
-          Contact Us
-        </a>
       </section>
 
       <ContactForm />
