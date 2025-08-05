@@ -182,13 +182,12 @@ export default function TheProof() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
           {/* Text Section */}
           <SlideUpOnScroll>
-            <div className="flex-1 text-center text-banner-text">
-              <h1 className="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg">
+            <div className="flex-1 text-center">
+              <h1 className="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg text-dark-bg">
                 Welcome to Skylar&apos;s Run
               </h1>
               <p className="text-lg md:text-xl max-w-2xl opacity-90 text-banner-text">
-                Game-Based Cognitive Support for Mental Health Improvement™.
-                <br />
+                Welcome to the future.
                 Designed by neuroscientists to make focus fun—and effective,
                 this is Syntria&apos;s biggest innovation in the healthcare
                 space.
@@ -213,7 +212,9 @@ export default function TheProof() {
       {/* Product Showcase Sections */}
       <div className="space-y-20 pt-10 pb-20">
         {showcaseSections.map((section) => (
-          <TextImage key={"SR PS " + section.title} {...section} />
+          <SlideUpOnScroll key={"SR PS " + section.title}>
+            <TextImage {...section} />
+          </SlideUpOnScroll>
         ))}
       </div>
 
@@ -268,7 +269,7 @@ export default function TheProof() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-left">
           {whoItsFor.map((group, idx) => (
             <SlideUpOnScroll key={"user-group-" + idx}>
-              <div className="h-full bg-light-bg border-2 border-ltrans rounded-2xl shadow-xl p-6 flex flex-col justify-between">
+              <div className="h-full bg-hcontrast border-2 border-ltrans rounded-2xl shadow-xl p-6 flex flex-col justify-between">
                 <div>
                   <h3 className="text-xl font-semibold text-dark-bg mb-3">
                     {group.title}
@@ -280,7 +281,7 @@ export default function TheProof() {
                 <div className="mt-6">
                   <a
                     href={`/skylars-run/audience#${group.anchor}`}
-                    className="inline-block text-ltrans font-semibold hover:underline transition-all"
+                    className="inline-block text-rtrans font-semibold hover:underline transition-all"
                   >
                     Learn More <span className="font-black">&#x2192;</span>
                   </a>

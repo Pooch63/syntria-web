@@ -21,11 +21,11 @@ export default function TextImage({
       {/* Gradient Border Section with Transparent Background */}
       <div className="flex-1 z-10">
         <div className="rounded-3xl bg-gradient-to-r from-ltrans to-rtrans p-[2px] mb-6 md:mb-0 shadow-xl">
-          <div className="rounded-[calc(1.5rem-2px)] bg-light-bg p-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-500 drop-shadow">
+          <div className="rounded-[calc(1.5rem-2px)] bg-hcontrast p-8">
+            <h2 className="text-3xl md:text-4xl mb-4 text-black drop-shadow">
               {title}
             </h2>
-            <p className="text-lg md:text-xl opacity-90 text-gray-500">
+            <p className="text-small md:text-md opacity-90 text-gray-500">
               {text}
             </p>
           </div>

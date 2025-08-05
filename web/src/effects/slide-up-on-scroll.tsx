@@ -19,8 +19,10 @@ const SlideUpOnScroll: React.FC<SlideUpOnScrollProps> = ({
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
-        setContentVisible(true);
-        observer.disconnect();
+        setTimeout(() => {
+          setContentVisible(true);
+          observer.disconnect();
+        }, 200);
       }
     });
 
