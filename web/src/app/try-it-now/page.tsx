@@ -1,5 +1,4 @@
 import React from "react";
-import Card from "@/effects/card";
 import SlideUpOnScroll from "@/effects/slide-up-on-scroll";
 import ContactForm from "@/components/ContactForm";
 

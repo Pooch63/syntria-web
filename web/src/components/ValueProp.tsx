@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import { Hospital, Clock, TrendingUp, Users, Heart, Shield } from 'lucide-react';
 
 interface BenefitItem {
   icon: React.ReactNode;
@@ -16,13 +15,13 @@ interface StorySection {
 }
 
 interface BuyerPopulationPageProps {
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
   heroImage?: string;
   heroNumber?: number; // New prop for number display
-  benefits?: BenefitItem[];
-  story?: StorySection;
-  cta?: {
+  benefits: BenefitItem[];
+  story: StorySection;
+  cta: {
     header: string;
     subheader: string;
   };
@@ -30,7 +29,7 @@ interface BuyerPopulationPageProps {
 
 // Number animation component
 const AnimatedNumber: React.FC<{ targetNumber: number; duration?: number }> = ({ 
-  targetNumber, 
+  targetNumber,
   duration = 3500 
 }) => {
   const [currentNumber, setCurrentNumber] = useState(0);
@@ -80,42 +79,13 @@ const AnimatedNumber: React.FC<{ targetNumber: number; duration?: number }> = ({
 };
 
 export default function BuyerPopulationPage({
-  title = "Mental Health Practices",
-  description = "Skylar's Run has been shown over and over to improve mental health symptoms, particularly those associated with depression and anxiety.",
-  heroImage = "/images/mental-health-hero.jpg",
+  title,
+  description,
+  heroImage,
   heroNumber, // New prop
-  benefits = [
-    {
-      icon: <Hospital className="w-16 h-16" />,
-      header: "Remote Treatment",
-      subheader: "No more hospital visits - patients can practice effective treatment from the comfort of their own homes"
-    },
-    {
-      icon: <Clock className="w-16 h-16" />,
-      header: "Efficient Sessions",
-      subheader: "Reduce session time while maintaining or improving treatment effectiveness and patient outcomes"
-    },
-    {
-      icon: <TrendingUp className="w-16 h-16" />,
-      header: "Data-Driven Insights",
-      subheader: "Track patient progress with real-time EEG data analytics and objective measurement tools"
-    },
-    {
-      icon: <Users className="w-16 h-16" />,
-      header: "Scalable Practice",
-      subheader: "Scale your practice to help more patients simultaneously without compromising quality of care"
-    }
-  ],
-  story = {
-    name: "Dr. Sarah",
-    story: "I was skeptical at first, but after implementing Skylar's Run in my practice, I've seen remarkable improvements in my patients' anxiety levels. The gamification aspect keeps them engaged between sessions, and the EEG data gives me objective insights I never had before.",
-    outcome: "Dr. Sarah's practice saw a 40% improvement in patient retention and a 60% reduction in missed appointments. Her patients reported feeling more in control of their mental health journey and showed measurable improvements in focus and anxiety management.",
-    image: "/images/temp/dr-sarah.jpg"
-  },
-  cta = {
-    header: "Ready to Transform Your Practice?",
-    subheader: "Join thousands of professionals who are already using Skylar's Run to improve patient outcomes."
-  }
+  benefits,
+  story,
+  cta
 }: BuyerPopulationPageProps) {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -194,13 +164,13 @@ export default function BuyerPopulationPage({
       <section className="pt-32 pb-20 px-4 bg-light-bg">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">
-            {story.name}'s Story
+            {story.name}&apos;s Story
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left Side - Story Content */}
             <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
               <blockquote className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 italic">
-                "{story.story}"
+                &quot;{story.story}&quot;
               </blockquote>
               <div className="border-t border-gray-200 pt-8">
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">The Outcome</h3>

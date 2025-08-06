@@ -2,7 +2,6 @@
 import React, { useRef } from "react";
 import { LearnMore, UnderlineOnView } from "@/effects/texts";
 import SlideUpOnScroll from "@/effects/slide-up-on-scroll";
-import Card from "@/effects/card";
 import TextImage from "@/effects/text-image";
 
 // Product showcase sections for Skylar's Run
@@ -47,38 +46,6 @@ const testimonials = [
     text: "Thanks to Skylar's Run our child is now able to focus better, stay on task, and achieve academic success. As parents, we couldn't be more proud of their progress and we're grateful for creating such an innovative and effective solution.",
     name: "Gabriella",
     role: "School Superintendent",
-  },
-];
-const graphs = [
-  {
-    image: "/images/13-cognitive-skills.png",
-    imageAlt: "Skylar's Run Gameplay Preview",
-    header: "Skylar's Approach",
-    subtitle:
-      "Skylar's Run starts small and ramps up. You won't believe how much you can improve your " +
-      "cognition... until you already have.",
-    reverse: false,
-  },
-  {
-    image: "/images/skylars-run-reductions.png",
-    imageAlt: "Skylar's Run Study Findings",
-    header: "Skylar's Run Reduces ADHD And Keeps it That Way",
-    subtitle:
-      "4 clinical trials have found that while playing Skylar's Run, ADHD-related symptoms face a sharp decline. " +
-      "After your playing period, you don't have to worry about rebounding - the game has already made its mark.",
-    reverse: true,
-  },
-  {
-    image: "/images/skylars-run-comparative-analysis.png",
-    imageAlt: "Skylar's Run Compared to Other ADHD Treatments",
-    header: "Skylar's Run Beats Tradition",
-    subtitle: (
-      <>
-        Short of prescription stimulants, Skylar&apos;s Run consistently
-        outperforms other ADHD medications and treatments on the market.
-      </>
-    ),
-    reverse: false,
   },
 ];
 const whoItsFor = [
