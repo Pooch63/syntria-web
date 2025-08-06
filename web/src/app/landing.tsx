@@ -1,11 +1,13 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { TextCarousel, UnderlineOnView } from "@/effects/texts";
 import SlideUpOnScroll from "@/effects/slide-up-on-scroll";
 import FeatureCard from "@/effects/feature";
 
 import { Brain, BookOpenText, BarChart4, Stethoscope } from "lucide-react";
 import EEGWaveform from "@/components/eeg";
+
+import { ArrowUp, ArrowDown } from 'lucide-react';
 
 const sections = [
   {
@@ -38,14 +40,115 @@ const sections = [
   },
 ];
 
+function LandingGrid() {
+  return (
+    <div className="max-w-2xl mx-auto px-4 py-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Left Column - Improvements */}
+        <SlideUpOnScroll>
+          <div className="space-y-4">
+            <a 
+              href="/skylars-run/audience/sports" 
+              className="group block p-4 hover:bg-gray-50 transition-all duration-300"
+            >
+              <div className="flex items-center space-x-2">
+                <ArrowUp className="w-5 h-5 text-dtext group-hover:scale-110 transition-all duration-300" />
+                <span className="text-lg font-medium text-dtext">
+                  Sports Performance
+                </span>
+              </div>
+            </a>
+
+            <a 
+              href="/skylars-run/audience/pediatrics" 
+              className="group block p-4 hover:bg-gray-50 transition-all duration-300"
+            >
+              <div className="flex items-center space-x-2">
+                <ArrowUp className="w-5 h-5 text-dtext group-hover:scale-110 transition-all duration-300" />
+                <span className="text-lg font-medium text-dtext">
+                  School Potential
+                </span>
+              </div>
+            </a>
+          </div>
+        </SlideUpOnScroll>
+
+        {/* Right Column - Reductions */}
+        <SlideUpOnScroll>
+          <div className="space-y-4 text-left md:text-right">
+            <a 
+              href="/skylars-run/audience/elderly"
+              className="group block p-4 hover:bg-gray-50 transition-all duration-300"
+            >
+              <div className="flex items-center justify-end space-x-2">
+                <ArrowDown className="md:hidden w-5 h-5 text-dtext group-hover:scale-110 transition-all duration-300" />
+                <span className="text-lg font-medium text-dtext">
+                  Risk of Falling
+                </span>
+                <ArrowDown className="hidden md:block w-5 h-5 text-dtext group-hover:scale-110 transition-all duration-300" />
+              </div>
+            </a>
+
+            <a 
+              href="/skylars-run/audience/mental-health" 
+              className="group block p-4 hover:bg-gray-50 transition-all duration-300"
+            >
+              <div className="flex items-center justify-end space-x-2">
+                <ArrowDown className="md:hidden w-5 h-5 text-dtext group-hover:scale-110 transition-all duration-300" />
+                <span className="text-lg font-medium text-dtext">
+                  Attention Difficulties
+                </span>
+                <ArrowDown className="hidden md:block w-5 h-5 text-dtext group-hover:scale-110 transition-all duration-300" />
+              </div>
+            </a>
+          </div>
+        </SlideUpOnScroll>
+      </div>
+    </div>
+  );
+}
+
+function ParallaxHeroImage() {
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (imageRef.current) {
+        const scrolled = window.pageYOffset;
+        const parallaxSpeed = 0.5; // Image moves at 50% of scroll speed
+        imageRef.current.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <section className="relative h-[100vh] overflow-hidden">
+      <div className="absolute inset-0">
+        <img
+          ref={imageRef}
+          src="/images/brain.jpg"
+          alt="Brain technology visualization"
+          className="w-full h-[120%] object-cover object-center absolute top-[-10%]"
+          style={{ willChange: 'transform' }}
+        />
+        {/* Optional overlay for better text readability if needed */}
+        {/* <div className="absolute inset-0 bg-black bg-opacity-20"></div> */}
+      </div>
+    </section>
+  );
+}
+
 export default function Landing() {
   return (
     <main className="min-h-screen bg-light-bg font-sans">
       <title>Syntria</title>
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center pt-24 px-4 text-center">
+      <section className="flex flex-col items-center justify-center pt-24 pb-10 px-4 text-center">
         <h1 className="montserrat text-3xl md:text-6xl mb-6 drop-shadow-lg text-gray-500 text-balance">
-          The Home for Evidence-Based Cognitive Tools
+          The Home for Cognitive Revolution
         </h1>
         <div className="w-[100%] hidden md:block">
           <TextCarousel
@@ -60,33 +163,19 @@ export default function Landing() {
         <div className="w-[100%] block md:hidden">
           <p className="text-center text-3xl text-gray-800">Syntria</p>
         </div>
-        <h4 className="w-[90%] md:w-[40%] text-md text-gray-500">
-          Syntria is a startup turning mental health innovations into accessible
-          experiences. Our first product, Skylar’s Run, is a video game powered
-          by EEG technology where players advance by focusing—no hands required.
-        </h4>
+        <LandingGrid />
         <a
           href="/skylars-run"
           className="mt-4 px-8 py-3 bg-dark-bg text-hcontrast rounded-full font-semibold shadow-lg hover:bg-dtext transition"
         >
           Learn More
         </a>
-{/* 
-        <img
-          src="/images/brain-body.jpg"
-          alt="Giant Display Image"
-          className="mt-12 w-full max-w-3xl mx-auto rounded-lg shadow-xl"
-        /> */}
       </section>
 
-      {/* EEG Waveform Animation */}
-      <section className="pt-10">
-        <div className="max-w-[80%] mx-auto">
-          <EEGWaveform updateSpeed={90} subheader="Our first product, Skylar's Run, uses real-time brainwave monitoring." />
-        </div>
-      </section>
+      {/* Parallax Hero Image */}
+      <ParallaxHeroImage />
 
-      <section className="relative pt-20 px-4">
+      <section className="relative pt-20 px-4 bg-light-bg">
         <div className="max-w-6xl mx-auto">
           <SlideUpOnScroll>
             <div className="text-center mb-16">

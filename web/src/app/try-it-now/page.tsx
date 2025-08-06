@@ -25,19 +25,6 @@ export default function TryItNow() {
         </a>
       </section>
 
-      <section className="max-w-4xl mx-auto px-4 pb-12 grid md:grid-cols-2 gap-12 items-stretch">
-        <Card
-          className="h-full"
-          header="Easy to Begin"
-          content="Start today and give your loved one a fun, simple way to strengthen their mind and brighten their future."
-        />
-        <Card
-          className="h-full"
-          header="No Risk, All Reward"
-          content="Whether you're an individual or a 10,000 member organization, it's 60 days or your money back."
-        />
-      </section>
-
       <section
         className="max-w-3xl mx-auto px-4 py-12 text-center"
         id="contact-us"

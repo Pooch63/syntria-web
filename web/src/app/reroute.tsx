@@ -3,7 +3,7 @@
 
 import { distance } from "fastest-levenshtein";
 
-const routes = ["/about", "/skylars-run", "/try-it-now"];
+const routes = ["/about", "/skylars-run", "/skylars-run/audience", "/try-it-now"];
 
 export default function recommendReroute({
   currentPathname,

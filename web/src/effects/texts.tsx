@@ -56,10 +56,10 @@ export function Header({ text }: { text: string }) {
 }
 
 export function UnderlineOnView(
-  { text, className, underlineClassName, containerClassName = undefined }:
+  { text, className = undefined, underlineClassName, containerClassName = undefined }:
   {
     text: string;
-    className: string;
+    className?: string;
     underlineClassName: string;
     containerClassName?: string;
   }) {
@@ -92,3 +92,13 @@ export function UnderlineOnView(
     </div>
   );
 };
+export function LearnMore({ url }: { url: string; }) {
+  return (
+    <a
+      href={url}
+      className="inline-block text-rtrans font-semibold hover:underline transition-all"
+    >
+      Learn More <span className="font-black">&#x2192;</span>
+    </a>
+  );
+}
