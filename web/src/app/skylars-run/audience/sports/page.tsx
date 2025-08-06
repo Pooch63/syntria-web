@@ -5,7 +5,7 @@ export default function MentalHealth() {
   return <BuyerPopulationPage {...{
     title: "Sports Performance Teams",
     description: "Skylar's Run enhances athletic performance through improved focus, decision-making speed, and cognitive resilience - giving your team the mental edge to win.",
-    heroImage: "/images/sports-team-hero.jpg",
+    heroNumber: 9.98,
     benefits: [
       {
         icon: <Target className="w-16 h-16 text-white" />,

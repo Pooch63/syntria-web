@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { Header } from "@/effects/texts";
 import { VerticalTimeline } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { TimelineElement } from "@/effects/timeline";
@@ -65,7 +64,9 @@ export default function AboutUs() {
     <main className="min-h-screen bg-light-bg text-dark-bg font-sans pb-20">
       <title>About Us</title>
       <section className="max-w-4xl mx-auto pt-32 pb-12 px-4 text-center">
-        <Header text="About" />
+        <h1 className="slide-up text-5xl font-extrabold mb-6 text-dtext drop-shadow">
+          About
+        </h1>
         <p className="text-xl max-w-2xl mx-auto mb-8 opacity-90 text-dtext">
           Syntria is on a mission to revolutionize cognitive health for youth
           across the US. By combining cutting-edge EEG technology with the power
@@ -79,7 +80,7 @@ export default function AboutUs() {
         <h2 className="text-3xl font-bold text-dark-bg mb-8 text-center">
           Meet the Team
         </h2>
-        <p className="text-xl max-w-2xl mx-auto mb-8 opacity-90 text-dark-bg text-center text-balance">
+        <p className="text-lg max-w-2xl mx-auto mb-8 opacity-90 text-dtext text-center text-balance">
           From business to marketing, healthcare to regulatory, our team has it
           all.
         </p>

@@ -5,7 +5,7 @@ export default function MentalHealth() {
   return <BuyerPopulationPage {...{
     title: "Nursing Home Management",
     description: "Skylar's Run delivers $3,280 ROI per user through reduced staff turnover, increased billable hours, and improved cognitive outcomes for elderly residents.",
-    heroImage: "/images/nursing-home-hero.jpg",
+    heroNumber: 9.98,
     benefits: [
       {
         icon: <DollarSign className="w-16 h-16 text-white" />,

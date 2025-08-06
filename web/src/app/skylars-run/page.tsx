@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef } from "react";
-import { Header, LearnMore, UnderlineOnView } from "@/effects/texts";
+import { LearnMore, UnderlineOnView } from "@/effects/texts";
 import SlideUpOnScroll from "@/effects/slide-up-on-scroll";
 import Card from "@/effects/card";
 import TextImage from "@/effects/text-image";

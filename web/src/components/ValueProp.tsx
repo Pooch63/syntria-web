@@ -19,6 +19,7 @@ interface BuyerPopulationPageProps {
   title?: string;
   description?: string;
   heroImage?: string;
+  heroNumber?: number; // New prop for number display
   benefits?: BenefitItem[];
   story?: StorySection;
   cta?: {
@@ -27,10 +28,62 @@ interface BuyerPopulationPageProps {
   };
 }
 
+// Number animation component
+const AnimatedNumber: React.FC<{ targetNumber: number; duration?: number }> = ({ 
+  targetNumber, 
+  duration = 3500 
+}) => {
+  const [currentNumber, setCurrentNumber] = useState(0);
+
+  useEffect(() => {
+    let startTime: number;
+    let animationFrame: number;
+
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      const current = easeOutQuart * targetNumber;
+      
+      setCurrentNumber(current);
+      
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
+
+    // Start animation after a short delay
+    const timer = setTimeout(() => {
+      animationFrame = requestAnimationFrame(animate);
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
+  }, [targetNumber, duration]);
+
+  return (
+    <div className="text-center">
+      <div className="text-5xl md:text-7xl font-bold text-hcontrast mb-4">
+        ${currentNumber.toFixed(2)}B+
+      </div>
+      <div className="text-2xl md:text-3xl text-hcontrast opacity-80 font-semibold tracking-wider uppercase">
+        Industry
+      </div>
+    </div>
+  );
+};
+
 export default function BuyerPopulationPage({
   title = "Mental Health Practices",
   description = "Skylar's Run has been shown over and over to improve mental health symptoms, particularly those associated with depression and anxiety.",
   heroImage = "/images/mental-health-hero.jpg",
+  heroNumber, // New prop
   benefits = [
     {
       icon: <Hospital className="w-16 h-16" />,
@@ -69,6 +122,7 @@ export default function BuyerPopulationPage({
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
   return (
     <main className="min-h-screen bg-light-bg">
       {/* Hero Banner Section */}
@@ -84,13 +138,22 @@ export default function BuyerPopulationPage({
                 {description}
               </p>
             </div>
-            {/* Right Side - Image */}
+            
+            {/* Right Side - Image or Number */}
             <div className={`flex justify-center transition-all duration-1000 ease-out delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-              <img
-                src={heroImage}
-                alt={title}
-                className="w-full max-w-lg rounded-2xl shadow-2xl"
-              />
+              {heroNumber !== undefined ? (
+                // Display animated number if heroNumber is provided
+                <div className="bg-gradient-to-br from-dark-bg via-rtrans to-ltrans rounded-2xl p-12 shadow-2xl">
+                  <AnimatedNumber targetNumber={heroNumber} />
+                </div>
+              ) : (
+                // Display image if no heroNumber is provided
+                <img
+                  src={heroImage}
+                  alt={title}
+                  className="w-full max-w-lg rounded-2xl shadow-2xl"
+                />
+              )}
             </div>
           </div>
         </div>

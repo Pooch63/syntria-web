@@ -5,7 +5,7 @@ export default function MentalHealth() {
   return <BuyerPopulationPage {...{
       title: "Mental Health Treatment Centers",
       description: "Skylar's Run addresses the root cause of 18 out of 20 common psychiatric conditions - attention deficits - with proven results in reducing anxiety, depression, and substance abuse.",
-      heroImage: "/images/mental-health-clinic-hero.jpg",
+      heroNumber: 5.2,
       benefits: [
         {
           icon: <Shield className="w-16 h-16 text-white" />,

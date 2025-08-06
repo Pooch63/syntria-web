@@ -11,27 +11,24 @@ interface TextCarouselProps {
 }
 export function TextCarousel({
   messages,
-  delay = 2000 + 800,
+  delay = 2800,
   pauseLast = 4000,
 }: TextCarouselProps) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    if (index >= messages.length - 1) return;
+    const isLast = index === messages.length - 1;
 
-    const timeout = setTimeout(
-      () => {
-        setIndex((prev) => prev + 1);
-      },
-      index === messages.length - 1 ? pauseLast : delay,
-    );
+    const timeout = setTimeout(() => {
+      setIndex((prev) => (isLast ? 0 : prev + 1));
+    }, isLast ? pauseLast : delay);
 
     return () => clearTimeout(timeout);
   }, [index, delay, pauseLast, messages.length]);
 
   return (
-    <div className="w-[100%] overflow-x-hidden relative h-12 text-center text-xl md:text-4xl text-gray-800">
-      <AnimatePresence>
+    <div className="w-full overflow-x-hidden relative h-12 text-center text-xl md:text-4xl text-gray-800">
+      <AnimatePresence mode="wait">
         <motion.div
           key={messages[index]}
           initial={{ opacity: 0, x: 50 }}
@@ -44,14 +41,6 @@ export function TextCarousel({
         </motion.div>
       </AnimatePresence>
     </div>
-  );
-}
-
-export function Header({ text }: { text: string }) {
-  return (
-    <h1 className="slide-up text-5xl font-extrabold mb-6 text-dtext drop-shadow montserrat">
-      {text}
-    </h1>
   );
 }
 

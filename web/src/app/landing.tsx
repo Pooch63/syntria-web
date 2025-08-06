@@ -4,10 +4,7 @@ import { TextCarousel, UnderlineOnView } from "@/effects/texts";
 import SlideUpOnScroll from "@/effects/slide-up-on-scroll";
 import FeatureCard from "@/effects/feature";
 
-import { Brain, BookOpenText, BarChart4, Stethoscope } from "lucide-react";
-import EEGWaveform from "@/components/eeg";
-
-import { ArrowUp, ArrowDown } from 'lucide-react';
+import { Brain, BookOpenText, BarChart4, Stethoscope, ArrowUp, ArrowDown } from "lucide-react";
 
 const sections = [
   {
@@ -40,69 +37,104 @@ const sections = [
   },
 ];
 
+function generateBorderClasses(direction: 'full' | 'tl' | 'tr' | 'bl' | 'br', color: string): string {
+  if (direction == "full") {
+    return `border-${color}`;
+  }
+  if (direction == 'tl') {
+    return generateBorderClasses("full", color) + ` md:border-r-1 md:border-b-1`;
+  }
+  if (direction == 'tr') {
+    return generateBorderClasses("full", color) + ` md:border-l-1 md:border-b-1`;
+  }
+  if (direction == 'bl') {
+    return generateBorderClasses("full", color) + ` md:border-t-1 md:border-r-1`;
+  }
+  if (direction == 'br') {
+    return generateBorderClasses("full", color) + ` md:border-t-1 md:border-l-1`;
+  }
+  return "unknown";
+}
 function LandingGrid() {
   return (
-    <div className="max-w-2xl mx-auto px-4 py-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Left Column - Improvements */}
-        <SlideUpOnScroll>
-          <div className="space-y-4">
-            <a 
-              href="/skylars-run/audience/sports" 
-              className="group block p-4 hover:bg-gray-50 transition-all duration-300"
-            >
-              <div className="flex items-center space-x-2">
-                <ArrowUp className="w-5 h-5 text-dtext group-hover:scale-110 transition-all duration-300" />
-                <span className="text-lg font-medium text-dtext">
-                  Sports Performance
-                </span>
-              </div>
-            </a>
+    <div className="relative">
+      <svg
+        className="absolute"
+        height="100%"
+        width="100%"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          rx="8"
+          ry="8"
+          className="card-border-animation-line"
+          height="100%"
+          width="100%"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <div className="max-w-2xl mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          {/* Left Column - Improvements */}
+          <SlideUpOnScroll>
+            <div className="">
+              <a 
+                href="/skylars-run/audience/sports" 
+                className={`group block p-4 hover:bg-gray-50 transition-all duration-300 ${generateBorderClasses("tl", "dark-bg")}`}
+              >
+                <div className="flex items-center space-x-2">
+                  <ArrowUp className="w-5 h-5 text-dtext group-hover:scale-110 transition-all duration-300" />
+                  <span className="text-lg font-medium text-dtext">
+                    Sports Performance
+                  </span>
+                </div>
+              </a>
 
-            <a 
-              href="/skylars-run/audience/pediatrics" 
-              className="group block p-4 hover:bg-gray-50 transition-all duration-300"
-            >
-              <div className="flex items-center space-x-2">
-                <ArrowUp className="w-5 h-5 text-dtext group-hover:scale-110 transition-all duration-300" />
-                <span className="text-lg font-medium text-dtext">
-                  School Potential
-                </span>
-              </div>
-            </a>
-          </div>
-        </SlideUpOnScroll>
+              <a 
+                href="/skylars-run/audience/pediatrics" 
+                className={`group block p-4 hover:bg-gray-50 transition-all duration-300 ${generateBorderClasses("bl", "dark-bg")}`}
+              >
+                <div className="flex items-center space-x-2">
+                  <ArrowUp className="w-5 h-5 text-dtext group-hover:scale-110 transition-all duration-300" />
+                  <span className="text-lg font-medium text-dtext">
+                    School Potential
+                  </span>
+                </div>
+              </a>
+            </div>
+          </SlideUpOnScroll>
 
-        {/* Right Column - Reductions */}
-        <SlideUpOnScroll>
-          <div className="space-y-4 text-left md:text-right">
-            <a 
-              href="/skylars-run/audience/elderly"
-              className="group block p-4 hover:bg-gray-50 transition-all duration-300"
-            >
-              <div className="flex items-center justify-end space-x-2">
-                <ArrowDown className="md:hidden w-5 h-5 text-dtext group-hover:scale-110 transition-all duration-300" />
-                <span className="text-lg font-medium text-dtext">
-                  Risk of Falling
-                </span>
-                <ArrowDown className="hidden md:block w-5 h-5 text-dtext group-hover:scale-110 transition-all duration-300" />
-              </div>
-            </a>
+          {/* Right Column - Reductions */}
+          <SlideUpOnScroll>
+            <div className="text-left md:text-right">
+              <a 
+                href="/skylars-run/audience/elderly"
+                className={`group block p-4 hover:bg-gray-50 transition-all duration-300 ${generateBorderClasses("tr", "dark-bg")}`}
+              >
+                <div className="flex items-center justify-end space-x-2">
+                  <ArrowDown className="md:hidden w-5 h-5 text-dtext group-hover:scale-110 transition-all duration-300" />
+                  <span className="text-lg font-medium text-dtext">
+                    Risk of Falling
+                  </span>
+                  <ArrowDown className="hidden md:block w-5 h-5 text-dtext group-hover:scale-110 transition-all duration-300" />
+                </div>
+              </a>
 
-            <a 
-              href="/skylars-run/audience/mental-health" 
-              className="group block p-4 hover:bg-gray-50 transition-all duration-300"
-            >
-              <div className="flex items-center justify-end space-x-2">
-                <ArrowDown className="md:hidden w-5 h-5 text-dtext group-hover:scale-110 transition-all duration-300" />
-                <span className="text-lg font-medium text-dtext">
-                  Attention Difficulties
-                </span>
-                <ArrowDown className="hidden md:block w-5 h-5 text-dtext group-hover:scale-110 transition-all duration-300" />
-              </div>
-            </a>
-          </div>
-        </SlideUpOnScroll>
+              <a 
+                href="/skylars-run/audience/mental-health" 
+                className={`group block p-4 hover:bg-gray-50 transition-all duration-300 ${generateBorderClasses("br", "dark-bg")}`}
+              >
+                <div className="flex items-center justify-end space-x-2">
+                  <ArrowDown className="md:hidden w-5 h-5 text-dtext group-hover:scale-110 transition-all duration-300" />
+                  <span className="text-lg font-medium text-dtext">
+                    Attention Difficulties
+                  </span>
+                  <ArrowDown className="hidden md:block w-5 h-5 text-dtext group-hover:scale-110 transition-all duration-300" />
+                </div>
+              </a>
+            </div>
+          </SlideUpOnScroll>
+        </div>
       </div>
     </div>
   );
@@ -147,14 +179,16 @@ export default function Landing() {
       <title>Syntria</title>
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center pt-24 pb-10 px-4 text-center">
-        <h1 className="montserrat text-3xl md:text-6xl mb-6 drop-shadow-lg text-gray-500 text-balance">
-          The Home for Cognitive Revolution
+        <h1 className="text-3xl md:text-6xl mb-6 drop-shadow-lg text-dtext text-balance">
+          Unlock Human Potential
         </h1>
         <div className="w-[100%] hidden md:block">
           <TextCarousel
             messages={[
               "Cutting-Edge AI Solutions",
+              "Syntria",
               "Mental Health Treatments that Stick",
+              "Syntria",
               "Cognition like Never Before",
               "Syntria",
             ]}
@@ -163,6 +197,7 @@ export default function Landing() {
         <div className="w-[100%] block md:hidden">
           <p className="text-center text-3xl text-gray-800">Syntria</p>
         </div>
+        <br/>
         <LandingGrid />
         <a
           href="/skylars-run"

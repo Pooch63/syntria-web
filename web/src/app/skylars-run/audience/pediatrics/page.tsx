@@ -5,7 +5,7 @@ export default function MentalHealth() {
   return <BuyerPopulationPage {...{
     title: "Pediatric Medical Practices",
     description: "Transform your pediatric practice with Skylar's Run - delivering 83% improvement in academic performance and 50% reduction in ADHD classifications for your young patients.",
-    heroImage: "/images/pediatric-practice-hero.jpg",
+    heroNumber: 1.13,
     benefits: [
       {
         icon: <Baby className="w-16 h-16 text-white" />,
