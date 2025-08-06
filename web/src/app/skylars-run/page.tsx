@@ -321,7 +321,7 @@ export default function TheProof() {
       <section className="py-16 bg-transparent text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-dark-bg mb-6">
-            Ready to Improve Your Patients' Mind?
+            Ready to Improve Your Patients&apos; Mind?
           </h2>
           <p className="text-lg md:text-xl text-dark-bg opacity-90 mb-8">
             Give Skylar&apos;s Run a try today and see the results for yourself.
