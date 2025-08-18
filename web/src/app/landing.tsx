@@ -140,14 +140,21 @@ function LandingGrid() {
   );
 }
 
-function ParallaxHeroImage() {
+function ParallaxHeroImage(
+  {
+    url,
+    parallaxSpeed = 0.35
+  }: {
+    url: string;
+    parallaxSpeed?: number; // Images moves at X% (0.4 = 40%, etc.) of page scroll speed
+  }
+) {
   const imageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       if (imageRef.current) {
         const scrolled = window.pageYOffset;
-        const parallaxSpeed = 0.5; // Image moves at 50% of scroll speed
         imageRef.current.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
       }
     };
@@ -161,7 +168,7 @@ function ParallaxHeroImage() {
       <div className="absolute inset-0">
         <img
           ref={imageRef}
-          src="/images/brain.jpg"
+          src={url}
           alt="Brain technology visualization"
           className="w-full h-[120%] object-cover object-center absolute top-[-10%]"
           style={{ willChange: 'transform' }}
@@ -208,7 +215,7 @@ export default function Landing() {
       </section>
 
       {/* Parallax Hero Image */}
-      <ParallaxHeroImage />
+      <ParallaxHeroImage url={"/images/brain.jpg"} />
 
       <section className="relative pt-20 px-4 bg-light-bg">
         <div className="max-w-6xl mx-auto">

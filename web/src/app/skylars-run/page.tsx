@@ -92,9 +92,14 @@ const results = [
   },
   {
     title: "Attention Challenges",
-    description:
-      <>An independent meta analysis found that Skylar&apos;s Run is as effective at treating attention-related difficulties as most ADHD medications on the market. <LearnMore url="/skylars-run/data" /></>
-  }
+    description: (
+      <>
+        An independent meta analysis found that Skylar&apos;s Run is as
+        effective at treating attention-related difficulties as most ADHD
+        medications on the market. <LearnMore url="/skylars-run/data" />
+      </>
+    ),
+  },
 ];
 
 function ResultCard({
@@ -154,10 +159,9 @@ export default function TheProof() {
                 Welcome to Skylar&apos;s Run
               </h1>
               <p className="text-lg md:text-xl max-w-2xl opacity-90 text-banner-text">
-                Welcome to the future.
-                Designed by neuroscientists to make focus fun—and effective,
-                this is Syntria&apos;s biggest innovation in the healthcare
-                space.
+                Welcome to the future. Designed by neuroscientists to make focus
+                fun—and effective, this is Syntria&apos;s biggest innovation in
+                the healthcare space.
               </p>
             </div>
           </SlideUpOnScroll>
@@ -176,7 +180,6 @@ export default function TheProof() {
         </div>
       </section>
 
-      
       {/* Existing Proof and Clinical Trials Section */}
       <section className="max-w-4xl mx-auto pt-10 pb-12 px-4 text-center">
         <h2 className="text-6xl font-bold text-dtext mb-8 text-center">
@@ -207,7 +210,7 @@ export default function TheProof() {
         ))}
       </div>
 
-        {/* Testimonials Section */}
+      {/* Testimonials Section */}
       <section className="py-20 bg-gradient-to-br from-ltrans to-rtrans relative">
         <div className="max-w-5xl mx-auto px-4 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-10 text-dark-bg drop-shadow">
@@ -287,13 +290,21 @@ export default function TheProof() {
 
       {/* Who It's For Section */}
       <section className="max-w-6xl mx-auto px-4 pt-24 pb-20 text-center">
-        <span className="text-5xl text-dark-bg">How We Can Help <UnderlineOnView underlineClassName="bg-dark-bg" className="text-dark-bg text-5xl" text="Your Patients" /></span>
-        <br /><br />
+        <span className="text-5xl text-dark-bg">
+          How We Can Help{" "}
+          <UnderlineOnView
+            underlineClassName="bg-dark-bg"
+            className="text-dark-bg text-5xl"
+            text="Your Patients"
+          />
+        </span>
+        <br />
+        <br />
         <p className="text-xl max-w-3xl mx-auto opacity-90 text-ltext mb-12">
           Skylar’s Run is designed to help people who struggle with focus—but
           also those who want to proactively build it. Whether you’re an
-          educator, clinician, or care for children or the elderly,
-          here’s how this tool fits your needs.
+          educator, clinician, or care for children or the elderly, here’s how
+          this tool fits your needs.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-left">

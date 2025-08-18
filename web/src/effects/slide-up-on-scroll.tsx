@@ -11,7 +11,7 @@ interface SlideUpOnScrollProps {
 const SlideUpOnScroll: React.FC<SlideUpOnScrollProps> = ({
   children,
   className = "",
-  style
+  style,
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [contentVisible, setContentVisible] = useState(false);

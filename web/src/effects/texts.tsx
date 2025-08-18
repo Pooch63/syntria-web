@@ -19,9 +19,12 @@ export function TextCarousel({
   useEffect(() => {
     const isLast = index === messages.length - 1;
 
-    const timeout = setTimeout(() => {
-      setIndex((prev) => (isLast ? 0 : prev + 1));
-    }, isLast ? pauseLast : delay);
+    const timeout = setTimeout(
+      () => {
+        setIndex((prev) => (isLast ? 0 : prev + 1));
+      },
+      isLast ? pauseLast : delay,
+    );
 
     return () => clearTimeout(timeout);
   }, [index, delay, pauseLast, messages.length]);
@@ -44,14 +47,17 @@ export function TextCarousel({
   );
 }
 
-export function UnderlineOnView(
-  { text, className = undefined, underlineClassName, containerClassName = undefined }:
-  {
-    text: string;
-    className?: string;
-    underlineClassName: string;
-    containerClassName?: string;
-  }) {
+export function UnderlineOnView({
+  text,
+  className = undefined,
+  underlineClassName,
+  containerClassName = undefined,
+}: {
+  text: string;
+  className?: string;
+  underlineClassName: string;
+  containerClassName?: string;
+}) {
   const controls = useAnimation();
   const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.5 });
   const [underlineVisible, setUnderlineVisible] = useState(false);
@@ -64,7 +70,13 @@ export function UnderlineOnView(
   }, [inView, controls]);
 
   return (
-    <div ref={ref} className={clsx("relative inline-block text-2xl font-semibold", containerClassName)}>
+    <div
+      ref={ref}
+      className={clsx(
+        "relative inline-block text-2xl font-semibold",
+        containerClassName,
+      )}
+    >
       <span className={className}>{text}</span>
       {underlineVisible && (
         <motion.div
@@ -80,8 +92,8 @@ export function UnderlineOnView(
       )}
     </div>
   );
-};
-export function LearnMore({ url }: { url: string; }) {
+}
+export function LearnMore({ url }: { url: string }) {
   return (
     <a
       href={url}

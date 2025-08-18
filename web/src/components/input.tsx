@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import './input.css';
+import React, { useState } from "react";
+import "./input.css";
 
 interface FloatingInputProps {
   name?: string;
@@ -13,26 +13,24 @@ interface FloatingInputProps {
 }
 
 export default function FloatingInput({
-  name = '',
+  name = "",
   placeholder,
   value,
   onChange,
-  type = 'password',
-  autocomplete = '',
+  type = "password",
+  autocomplete = "",
   required,
-  className
+  className,
 }: FloatingInputProps) {
   const [focused, setFocused] = useState(false);
 
   return (
-    <div
-      className="relative"
-    >
+    <div className="relative">
       <input
         name={name}
         type={type}
         autoComplete={autocomplete}
-        placeholder={focused ? '' : placeholder}
+        placeholder={focused ? "" : placeholder}
         className={`input-field placeholder-dark-bg text-ltext w-[100%] border border-dark-bg ${className}`}
         value={value}
         onChange={onChange}

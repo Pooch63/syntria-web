@@ -16,6 +16,7 @@
 		"wrangler": "^4.27.0"
 	},
 	"dependencies": {
+		"@google/generative-ai": "^0.24.1",
 		"itty-router": "^5.0.21",
 		"openai": "^5.11.0"
 	}
