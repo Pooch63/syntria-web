@@ -1,6 +1,8 @@
 "use client";
 import { getRandomElement } from "@/scripts/utils";
 import React, { useState, useRef, useEffect } from "react";
+import ReactMarkdown from 'react-markdown'
+
 
 interface Message {
   id: number;
@@ -16,7 +18,6 @@ interface ChatbotUIProps {
 const WORKER_URL = "https://chatbot-api.syntria-cognition.workers.dev/";
 async function getNextMessage(conversationHistory: Message[]): Promise<string> {
   try {
-    console.log(conversationHistory);
     const response = await fetch(WORKER_URL + "chat", {
       method: "POST",
       headers: {
@@ -195,7 +196,7 @@ const ChatbotUI: React.FC<ChatbotUIProps> = ({ className = "" }) => {
                         : "bg-gradient-to-r from-purple-500 via-purple-600 to-indigo-600 text-white rounded-br-sm"
                     }`}
                   >
-                    {...message.parts}
+                    {message.parts.map(message => <ReactMarkdown>{message}</ReactMarkdown>)}
                   </div>
                   <p
                     className={`text-xs text-gray-500 mt-1 ${message.role == 'model' ? "text-left" : "text-right"}`}
