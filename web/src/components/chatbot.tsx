@@ -196,7 +196,7 @@ const ChatbotUI: React.FC<ChatbotUIProps> = ({ className = "" }) => {
                         : "bg-gradient-to-r from-purple-500 via-purple-600 to-indigo-600 text-white rounded-br-sm"
                     }`}
                   >
-                    {message.parts.map(message => <ReactMarkdown>{message}</ReactMarkdown>)}
+                    {message.parts.map((message, idx) => <ReactMarkdown key={"Chatbot Message " + idx}>{message}</ReactMarkdown>)}
                   </div>
                   <p
                     className={`text-xs text-gray-500 mt-1 ${message.role == 'model' ? "text-left" : "text-right"}`}
