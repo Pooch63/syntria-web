@@ -202,7 +202,7 @@ export default function TheProof() {
       </section>
 
       {/* Video Section */}
-      <section className="py-24 bg-hcontrast relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-ltrans to-rtrans relative overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-ltrans to-rtrans rounded-full blur-2xl animate-pulse"></div>
@@ -212,13 +212,13 @@ export default function TheProof() {
         
         <div className="max-w-6xl mx-auto px-4 text-center relative z-10">
           <SlideUpOnScroll>
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 text-dark-bg">
+            <h2 className="text-4xl md:text-6xl font-bold mb-10 text-dark-bg drop-shadow">
               See Skylar&apos;s Run in{" "}
-              <span className="bg-gradient-to-r from-ltrans to-rtrans bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-light-bg to-hcontrast bg-clip-text text-transparent">
                 Action
               </span>
             </h2>
-            <p className="text-xl md:text-2xl text-dark-bg opacity-80 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-hcontrast opacity-80 mb-12 max-w-3xl mx-auto leading-relaxed">
               Watch how neurofeedback technology transforms focus into an engaging gaming experience
             </p>
           </SlideUpOnScroll>
