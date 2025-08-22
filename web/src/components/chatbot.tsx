@@ -40,6 +40,7 @@ async function getNextMessage(conversationHistory: Message[]): Promise<string> {
 
 const ChatbotUI: React.FC<ChatbotUIProps> = ({ className = "" }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
@@ -119,6 +120,10 @@ const ChatbotUI: React.FC<ChatbotUIProps> = ({ className = "" }) => {
     setIsOpen(!isOpen);
   };
 
+  const toggleExpanded = (): void => {
+    setIsExpanded(!isExpanded);
+  };
+
   const formatTime = (date: Date): string => {
     return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   };
@@ -130,10 +135,10 @@ const ChatbotUI: React.FC<ChatbotUIProps> = ({ className = "" }) => {
   };
 
   return (
-    <div className={`fixed bottom-6 right-6 z-50 ${className}`}>
+    <div className={`fixed ${isExpanded ? 'inset-4' : 'bottom-6 right-6'} z-50 ${className}`}>
       {/* Chat Dialog */}
       {isOpen && (
-        <div className="mb-4 w-80 h-96 bg-white rounded-2xl shadow-2xl border-2 border-gray-200 flex flex-col overflow-hidden animate-in slide-in-from-bottom-2 duration-300">
+        <div className={`mb-4 ${isExpanded ? 'w-full h-full' : 'w-80 h-96'} bg-white rounded-2xl shadow-2xl border-2 border-gray-200 flex flex-col overflow-hidden animate-in slide-in-from-bottom-2 duration-300`}>
           {/* Header */}
           <div className="bg-gradient-to-r from-purple-500 via-purple-600 to-indigo-600 px-4 py-3 flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -151,32 +156,66 @@ const ChatbotUI: React.FC<ChatbotUIProps> = ({ className = "" }) => {
                 </svg>
               </div>
               <div>
-                <h3 className="font-semibold text-white text-sm">
+                <h3 className="font-medium text-white text-sm">
                   Syntria Assistant
                 </h3>
-                <p className="text-white/80 text-xs">Online now</p>
+                <p className="text-white/80 text-xs font-light">Online now</p>
               </div>
             </div>
-            <button
-              onClick={toggleChat}
-              className="cursor-pointer text-white hover:text-gray-200 transition-colors"
-              type="button"
-              aria-label="Close chat"
-            >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+            <div className="flex items-center space-x-2">
+              {/* Expand/Contract Button */}
+              <button
+                onClick={toggleExpanded}
+                className="cursor-pointer text-white hover:text-gray-200 transition-colors"
+                type="button"
+                aria-label={isExpanded ? "Contract chat" : "Expand chat"}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  {isExpanded ? (
+                    <>
+                      <path d="m15 15 6 6m-6-6v4.8m0-4.8h4.8"/>
+                      <path d="M9 19.8V15m0 0H4.2M9 15l-6 6"/>
+                      <path d="M15 4.2V9m0 0h4.8M15 9l6-6"/>
+                      <path d="M9 4.2V9m0 0H4.2M9 9 3 3"/>
+                    </>
+                  ) : (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
+                    />
+                  )}
+                </svg>
+                
+              </button>
+              {/* Close Button */}
+              <button
+                onClick={toggleChat}
+                className="cursor-pointer text-white hover:text-gray-200 transition-colors"
+                type="button"
+                aria-label="Close chat"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
 
           {/* Messages */}
@@ -187,19 +226,23 @@ const ChatbotUI: React.FC<ChatbotUIProps> = ({ className = "" }) => {
                 className={`flex ${message.role == 'model' ? "justify-start" : "justify-end"}`}
               >
                 <div
-                  className={`max-w-xs ${message.role == 'model' ? "order-2" : "order-1"}`}
+                  className={`${isExpanded ? 'max-w-2xl' : 'max-w-xs'} ${message.role == 'model' ? "order-2" : "order-1"}`}
                 >
                   <div
-                    className={`px-3 py-2 rounded-2xl text-sm ${
+                    className={`px-3 py-2 rounded-2xl text-sm font-light ${
                       message.role == 'model'
                         ? "bg-white text-gray-800 rounded-bl-sm shadow-sm border"
-                        : "bg-gradient-to-r from-purple-500 via-purple-600 to-indigo-600 text-white rounded-br-sm"
+                        : "bg-gradient-to-r from-purple-400 via-purple-500 to-indigo-500/80 text-white rounded-br-sm shadow-md"
                     }`}
                   >
-                    {message.parts.map((message, idx) => <ReactMarkdown key={"Chatbot Message " + idx}>{message}</ReactMarkdown>)}
+                    {message.parts.map((message, idx) => (
+                      <div key={"Chatbot Message " + idx} className="font-light">
+                        <ReactMarkdown>{message}</ReactMarkdown>
+                      </div>
+                    ))}
                   </div>
                   <p
-                    className={`text-xs text-gray-500 mt-1 ${message.role == 'model' ? "text-left" : "text-right"}`}
+                    className={`text-xs text-gray-500 mt-1 font-light ${message.role == 'model' ? "text-left" : "text-right"}`}
                   >
                     {formatTime(message.timestamp)}
                   </p>
@@ -276,7 +319,7 @@ const ChatbotUI: React.FC<ChatbotUIProps> = ({ className = "" }) => {
                   "Learn about Skylar's Run...",
                   "Get started today...",
                 ])}
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent text-sm"
+                className="flex-1 px-3 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent text-sm font-light"
                 disabled={isTyping}
               />
               <button
@@ -305,8 +348,8 @@ const ChatbotUI: React.FC<ChatbotUIProps> = ({ className = "" }) => {
         </div>
       )}
 
-      {/* Chat Open Button */}
-      {!isOpen && (
+      {/* Chat Open Button - Only show when not expanded */}
+      {!isOpen && !isExpanded && (
         <button
           onClick={toggleChat}
           className="w-14 h-14 cursor-pointer rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 bg-gradient-to-r from-purple-500 via-purple-600 to-indigo-600 hover:shadow-purple-400/25"

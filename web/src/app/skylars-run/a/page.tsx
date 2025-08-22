@@ -202,7 +202,7 @@ export default function TheProof() {
       </section>
 
       {/* Video Section */}
-      <section className="py-24 bg-hcontrast relative overflow-hidden">
+      <section className="pt-16 pb-10 bg-light-bg relative overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-ltrans to-rtrans rounded-full blur-2xl animate-pulse"></div>

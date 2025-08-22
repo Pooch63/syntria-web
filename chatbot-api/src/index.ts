@@ -14,6 +14,8 @@ import { AutoRouter } from 'itty-router';
 // Documents are so small, we don't even need OpenAI embeddings
 const contextDoc =
 `Use the following information about the company, Syntria, in your response.
+
+--- DOC START ---
 Syntria information:
 Syntria Mission: Empowering mental wellness through science-backed, engaging technology to connect people to tools that strengthen minds and improve lives.
 
@@ -136,7 +138,12 @@ Skylar’s Run is offered as a non-medical cognitive training tool and therefore
 Where did the technology originate? If a license to practice and/or develop is required, has it been in-licensed and from whom? — (75 words)
 The technology originated at Thynk, Inc., a Massachusetts-based neurotechnology company founded by scientists and clinicians. Developed with NIH-funded research and clinical trials, our company holds a commercial license from Thynk to use and resell Skylar’s Run in mental health, clinical/healthcare, sports, and aging sectors.
 
-Pricing: We offer a flexible pricing plan that is negotiable. We encourage you to contact us for more information.`;
+Pricing: We offer a flexible pricing plan that is negotiable. We encourage you to contact us for more information.
+--- DOC END ---
+
+Be concise in your response, and don't add any fluff. Deny any requests that don't have to do
+with Syntria, and explain that you're built to provide information about the company.
+`;
 
 import { GoogleGenerativeAI, Part } from '@google/generative-ai';
 
@@ -180,7 +187,7 @@ export async function getGeminiResponse(apiKey: string, history: ChatMessage[]):
     history: apiHistory,
     // You can also add generation config or safety settings here
     generationConfig: {
-      maxOutputTokens: 200,
+      // maxOutputTokens: 200,
     },
   });
 
