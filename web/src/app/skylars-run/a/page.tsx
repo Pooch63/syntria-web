@@ -344,7 +344,7 @@ export default function TheProof() {
                     alt={t.name}
                     className="w-32 h-32 rounded-full object-cover mb-6 shadow-lg border-4 border-ltrans"
                   />
-                  <p className="text-lg italic mb-4 text-dark-bg">"{t.text}"</p>
+                  <p className="text-lg italic mb-4 text-dark-bg">&quot;{t.text}&quot;</p>
                   <div className="font-semibold text-dark-bg">{t.name}</div>
                   <div className="text-sm text-ltrans">{t.role}</div>
                 </div>
@@ -367,10 +367,9 @@ export default function TheProof() {
         <br />
         <br />
         <p className="text-xl max-w-3xl mx-auto opacity-90 text-ltext mb-12">
-          Skylar's Run is designed to help people who struggle with focus—but
-          also those who want to proactively build it. Whether you're an
-          educator, clinician, or care for children or the elderly, here's how
-          this tool fits your needs.
+          Skylar&apos;s Run is designed to help people who struggle with focus, but
+          also those who want to proactively build it. Whether you&apos;re an
+          educator, clinician, or care for children or the elderly, here&apos;
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-left">
