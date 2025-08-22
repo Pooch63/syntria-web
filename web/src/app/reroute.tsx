@@ -6,7 +6,10 @@ import { distance } from "fastest-levenshtein";
 const routes = [
   "/about",
   "/skylars-run",
-  "/skylars-run/audience",
+  "/skylars-run/audience/elderly",
+  "/skylars-run/audience/mental-health",
+  "/skylars-run/audience/pediatrics",
+  "/skylars-run/audience/sports",
   "/try-it-now",
 ];
 

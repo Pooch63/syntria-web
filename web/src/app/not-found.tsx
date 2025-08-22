@@ -9,10 +9,10 @@ export default function NotFound() {
   const recommended = recommendReroute({ currentPathname });
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-green-200 via-white to-green-100 text-gray-800 px-6 text-center relative overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-ltrans via-light-bg to-rtrans text-dark-bg px-6 text-center relative overflow-hidden">
       {/* Optional background SVG blob */}
       <svg
-        className="absolute -top-20 -left-20 w-[500px] h-[500px] opacity-10 text-green-300"
+        className="absolute -top-20 -left-20 w-[500px] h-[500px] opacity-10 text-ltrans"
         fill="currentColor"
         viewBox="0 0 200 200"
       >
@@ -22,17 +22,17 @@ export default function NotFound() {
         />
       </svg>
 
-      <h1 className="text-[120px] font-extrabold text-green-500 leading-none drop-shadow-lg z-10">
+      <h1 className="text-[120px] font-extrabold text-rtrans leading-none drop-shadow-lg z-10">
         404
       </h1>
-      <h2 className="text-3xl md:text-4xl font-semibold mt-4 z-10">
+      <h2 className="text-3xl md:text-4xl font-semibold mt-4 z-10 text-dtext">
         Page Not Found
       </h2>
-      <p className="mt-4 max-w-md text-gray-600 z-10">
+      <p className="mt-4 max-w-md text-ltext z-10">
         {recommended != null && (
           <>
             Maybe a typo? {currentPathname} does kinda look like{" "}
-            <Link href={recommended} className="underline">
+            <Link href={recommended} className="underline text-rtrans hover:text-ltrans transition">
               {recommended}
             </Link>
             .
@@ -41,13 +41,13 @@ export default function NotFound() {
         {recommended == null && (
           <>
             We couldn&apos;t figure out what you meant, so we&apos;ll just bring
-            you <Link href="/">back home</Link>.
+            you <Link href="/" className="underline text-rtrans hover:text-ltrans transition">back home</Link>.
           </>
         )}
       </p>
       <Link
         href="/"
-        className="mt-8 px-6 py-3 bg-green-500 hover:bg-green-600 text-white text-lg rounded-xl transition shadow-md z-10"
+        className="mt-8 px-6 py-3 bg-gradient-to-r from-ltrans to-rtrans hover:from-rtrans hover:to-ltrans text-light-bg text-lg rounded-xl transition shadow-md z-10 transform hover:scale-105 duration-300"
       >
         Return to Homepage
       </Link>
